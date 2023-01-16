@@ -1,0 +1,102 @@
+body {
+  margin: 0rem;
+  padding: 0rem;
+  height: 100vh;
+  width: 100vh;
+  color: white;
+  display: grid;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  overflow-x: hidden;
+}
+
+@media screen and (min-width: 481px) {
+  body {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "header top-div top-div top-div top-div"
+      "header main main main main"
+      "header main main main main"
+      "header main main main main"
+      "player player player player player"
+      "footer footer footer footer footer";
+  }
+  header {
+    grid-area: header;
+    background-color: black;
+    height: 83vh;
+    width: 15vw;
+  }
+  .top-div {
+    grid-area: top-div;
+    background-color: rgb(8, 8, 8);
+    width: 85vw;
+  }
+  main {
+    grid-area: main;
+    background-color: rgb(17, 17, 17);
+  }
+  .player {
+    grid-area: player;
+    background-color: rgb(8, 8, 8);
+    height: 10vh;
+    border-top: 1px solid rgba(49, 49, 49, 0.432);
+  }
+  footer {
+    grid-area: footer;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 48, 229, 1) 0%,
+      rgba(113, 78, 184, 1) 48%,
+      rgba(64, 190, 255, 1) 100%
+    );
+  }
+  h1 {
+    margin: 2rem 1rem;
+    text-align: center;
+  }
+  nav {
+    margin: 0.5rem 2rem;
+  }
+  nav a {
+    display: inline-block;
+    padding: 0.5rem;
+  }
+  footer {
+    display: grid;
+    grid-template-areas: "preview sign-up-for-free";
+  }
+  .preview {
+    grid-area: preview;
+    font-size: 0.9rem;
+    margin-bottom: 0rem;
+    width: 80vw;
+    height: 1vh;
+    margin: 0rem;
+    padding: 0rem;
+  }
+  .preview p {
+    margin: 0rem;
+    padding: 0rem;
+  }
+  .sign-up-for-free {
+    grid-area: sign-up-for-free;
+    width: 10rem;
+    height: 2rem;
+    margin: 1.5rem 3rem;
+    border-radius: 10rem;
+    border: solid rgba(255, 255, 255, 0);
+    font-weight: bold;
+  }
+  .preview-para-1 {
+    font-variant: small-caps;
+    padding: 0rem 0rem 0rem 0.5rem;
+  }
+  .preview-para-2 {
+    padding: 0.5rem 0rem 0rem 0.5rem;
+  }
+  h2 {
+    margin: 1rem;
+  }
+}
