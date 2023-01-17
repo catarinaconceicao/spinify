@@ -1,15 +1,154 @@
+/* color: rgb(0,216,86); */
+
 body {
-  margin: 0rem;
-  padding: 0rem;
+  margin: 0;
+  padding: 0;
   height: 100vh;
-  width: 100vh;
+  width: 100vw;
   color: white;
   display: grid;
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   overflow-x: hidden;
+  background-color: rgb(187, 148, 223);
+}
+.top-div input{
+  width: 10rem;
+  border-radius: 50px;
+  background-color: rgb(255, 255, 255);
+  border-color: rgba(240, 248, 255, 0);
+  height: 1.5rem;
+}
+.top-div button {
+  width: 5rem;
+  border-radius: 50px;
+}
+.music-info {
+  display: grid;
+  grid-template-columns: 0.7fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "poster music-details";
+  height: 15vh;
+  width: 15vw;
+}
+.poster{
+  width: 5rem;
+  height: 5rem;
+  background-color: rgb(29, 29, 29);
+  margin: 1.7rem 1rem;
+  font-size: 12px;
+  text-align: center;
+}
+.poster img {
+  width: 5rem;
+  height: 5rem;
+}
+.music-details{
+  width: 10rem;
+  height: 4rem;
+  background-color: rgba(0, 255, 255, 0.151);
+  margin: 1.7rem 1rem 1.7rem 0rem;
+  text-align: center;
+  padding: 0.5rem 0.25rem;
+}
+.music-details p {
+  margin-top: 0.3rem;
+  font-size: 14px;
+}
+.btn {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  background-color: rgb(255, 255, 255);
+  border-color: rgba(240, 248, 255, 0);
+  cursor: pointer;
+  text-align: center;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+.playing-options {
+  margin: 0% 10%;
+  display: grid;
+  grid-template-columns: 1.5fr 0.5fr;
+  grid-template-rows: 1.5fr 0.5fr;
+  grid-template-areas: 
+  "playing-options-btns sound-container"
+  "music-further-options sound-container";
+}
+.playing-options-btns {
+  grid-area: playing-options-btns;
+  display: inline-block;
+  margin: 2rem 22.5rem 0rem;
+  width: 13rem;
+
+}
+.music-further-options{
+  grid-area: music-further-options;
+  margin: 0rem 14rem 0.5rem;
+}
+.music-further-options input {
+  margin: 0px;
+}
+ .music-further-options input,.sound-container input{
+  vertical-align: middle;
+  -webkit-appearance: none;
+  outline: none;
+  border-radius: 5px;
+  height: 5px;
+  background-color: black;
+  background: rgb(255, 255, 255);
+} 
+/* * ----------------------------MUSIC THUMB---------------------------- */
+.slider{
+  left: 0px;
+  top: 8px;
+  width: 25rem;
+  height: 5px;
+  border-radius: 5px;
+  background-color: rgba(45, 250, 26, 0.548);
 }
 
+/* * ----------------------------SLIDER THUMB---------------------------- */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 0;
+  height: 0;
+}
+input[type="range"]:hover::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
+}
+.music-further-options p {
+  font-size: 10px;
+}
+.sound-container {
+  grid-area: sound-container;
+  margin: 2.5rem 6rem 2.5rem 14rem ;
+  width: 11rem;
+  padding: 0.5rem 0 0.5rem;
+}
+footer p {
+  font-size: 10px;
+}
+.powered-by-link {
+  font-size: 10px;
+}
+.play-pause-btn img{
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.932);
+  position: relative;
+  top: -4px;
+  left: -9px;
+}
+.music-further-options input, .music-further-options p {
+  display: inline-block;
+}
 @media screen and (min-width: 481px) {
   body {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -25,23 +164,42 @@ body {
   header {
     grid-area: header;
     background-color: black;
-    height: 83vh;
     width: 15vw;
   }
   .top-div {
     grid-area: top-div;
     background-color: rgb(8, 8, 8);
     width: 85vw;
+    height: 10vh;
+  }
+  .input-bar {
+    display: inline-block;
+    margin: 2rem 10rem 2rem 4rem;
+  }
+  .top-div-btns{
+    display: inline-block;
+    margin: 2rem 5rem 2rem 60rem;
+    width: 11.5rem;
   }
   main {
     grid-area: main;
     background-color: rgb(17, 17, 17);
+    height: 70vh;
   }
   .player {
     grid-area: player;
-    background-color: rgb(8, 8, 8);
-    height: 10vh;
+    background-color: rgb(17, 17, 17);
+    height: 15vh;
     border-top: 1px solid rgba(49, 49, 49, 0.432);
+    display: grid;
+    grid-template-columns: 0.2fr 1.8fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+      "music-info playing-options"
+      "music-info slide-container";
+  }
+  .music-details, .poster{
+    display: inline-block;
   }
   footer {
     grid-area: footer;
@@ -65,26 +223,34 @@ body {
   }
   footer {
     display: grid;
-    grid-template-areas: "preview sign-up-for-free";
+    grid-template-areas: "preview sign-up-for-free-btn";
+    font-weight: lighter;
+  }
+  .playing-options {
+    height: 15vh;
   }
   .preview {
     grid-area: preview;
     font-size: 0.9rem;
     margin-bottom: 0rem;
     width: 80vw;
-    height: 1vh;
+    height: 5vh;
     margin: 0rem;
     padding: 0rem;
   }
   .preview p {
     margin: 0rem;
     padding: 0rem;
+    display: inline;
   }
-  .sign-up-for-free {
-    grid-area: sign-up-for-free;
+  .preview a {
+    display: inline-block;
+  }
+  .sign-up-for-free-btn {
+    grid-area: sign-up-for-free-btn;
     width: 10rem;
     height: 2rem;
-    margin: 1.5rem 3rem;
+    margin: 0.8rem 3rem;
     border-radius: 10rem;
     border: solid rgba(255, 255, 255, 0);
     font-weight: bold;
@@ -99,4 +265,6 @@ body {
   h2 {
     margin: 1rem;
   }
+
+
 }

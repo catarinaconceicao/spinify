@@ -6,13 +6,17 @@
     <link rel="stylesheet" type="text/css" href="css/spinifyCSS.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="img/icon-spinify.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="img/logo/logo-bitmap-3.png" />
     <script defer src="js/spinifyJS.js"></script>
     <title>Spinify Web Player</title>
   </head>
   <body>
     <header class="navbar">
+      <img href="img/logo/logo-bitmap.png" />
       <h1>Spinify</h1>
       <nav>
         <a>🏠 Home</a><br />
@@ -22,10 +26,13 @@
     </header>
 
     <div class="top-div">
-      <label for="search"></label>
-      <input type="search" placeholder="Choose your poison" />
-      <button class="sign-up">Sign up</button>
-      <button class="log-in">Log in</button>
+      <div class="input-bar">
+        <input type="search" placeholder="Choose your poison" />
+      </div>
+      <div class="top-div-btns">
+        <button class="sign-up btn">Sign up</button>
+        <button class="log-in btn">Log in</button>
+      </div>
     </div>
 
     <main>
@@ -36,16 +43,58 @@
         </div>
       </div>
     </main>
-    <div class="player"></div>
+    <div class="player">
+      <div class="music-info">
+        <div class="poster">Poster Unavailable</div>
+        <div class="music-details">
+          <p class="music-name">music name</p>
+          <p class="author">author</p>
+        </div>
+      </div>
+
+      <div class="playing-options">
+        <div class="playing-options-btns">
+          <button type="button" class="shuffle-btn btn">
+            <!-- <img src="/img/player/icon-shuffle.png"/> -->
+            </button>
+          <button class="go-back-btn btn">
+            <!-- <img src="/img/player/go-back.svg"/> -->
+          </button>
+          <button class="play-pause-btn btn">
+            <!-- <img src="/img/player/icon-pause-2.png"/> -->
+          </button>
+          <button class="go-forward-btn btn">
+            <!-- <img src="/img/player/go-forward.svg"/> -->
+          </button>
+          <button class="repeat-btn btn">
+            <!-- <img src="/img/player/icon-repeat.png"/> -->
+          </button>
+        </div>
+
+        <div class="music-further-options">
+          <p>00:00</p>
+          <input class=slider type="range" class="music-slider" min="1" max="100" value="0">
+          <p>00:00</p>
+        </div>
+
+        <div class="sound-container">
+          <button class="sound-btn btn"></button>
+          <input type="range" class="sound-slider" min="1" max="100" value="50">
+        </div>
+
+      </div>
+    </div>
     <footer>
-      <div class="preview">
-        <p class="preview-para-1">Preview of Spinify</p>
+      <!-- <div class="preview">
+        <p class="preview-para-1">Preview of Spinify</p><br>
         <p class="preview-para-2">
           Sign up for unlimited songs and podcasts withs tons of ads! No credit
-          card needed.</p>
+          card needed.
+        </p><br>
+        <p>Powered by</p>
+        <a class="powered-by-link" href="https://pixabay.com/">Pixabay</a>
       </div>
-        <button class="sign-up-for-free">Sign up for free</button>
-      </p>
+      <button class="sign-up-for-free-btn">Sign up for free</button> -->
     </footer>
   </body>
 </html>
