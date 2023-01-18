@@ -9,10 +9,14 @@ body {
   display: grid;
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
+  font-weight: 600;
   overflow-x: hidden;
   background-color: rgb(187, 148, 223);
 }
-.top-div input{
+p {
+  font-weight: 300;
+}
+.top-div input {
   width: 10rem;
   border-radius: 50px;
   background-color: rgb(255, 255, 255);
@@ -31,22 +35,9 @@ body {
   height: 15vh;
   width: 15vw;
 }
-.poster{
-  width: 5rem;
-  height: 5rem;
-  background-color: rgb(29, 29, 29);
-  margin: 1.7rem 1rem;
-  font-size: 12px;
-  text-align: center;
-}
-.poster img {
-  width: 5rem;
-  height: 5rem;
-}
-.music-details{
+.music-details {
   width: 10rem;
   height: 4rem;
-  background-color: rgba(0, 255, 255, 0.151);
   margin: 1.7rem 1rem 1.7rem 0rem;
   text-align: center;
   padding: 0.5rem 0.25rem;
@@ -59,37 +50,42 @@ body {
   border-radius: 50%;
   height: 30px;
   width: 30px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.712);
   border-color: rgba(240, 248, 255, 0);
   cursor: pointer;
   text-align: center;
   margin-right: 0.5rem;
   vertical-align: middle;
 }
+button:hover {
+  background-color: rgb(255, 255, 255);
+}
+
 .playing-options {
   margin: 0% 10%;
   display: grid;
   grid-template-columns: 1.5fr 0.5fr;
   grid-template-rows: 1.5fr 0.5fr;
-  grid-template-areas: 
-  "playing-options-btns sound-container"
-  "music-further-options sound-container";
+  grid-template-areas:
+    "playing-options-btns sound-container"
+    "music-further-options sound-container";
 }
 .playing-options-btns {
   grid-area: playing-options-btns;
   display: inline-block;
-  margin: 2rem 22.5rem 0rem;
-  width: 13rem;
-
+  margin: 2rem 22rem 0rem;
+  width: 14rem;
+  vertical-align: middle;
 }
-.music-further-options{
+.music-further-options {
   grid-area: music-further-options;
   margin: 0rem 14rem 0.5rem;
 }
 .music-further-options input {
   margin: 0px;
 }
- .music-further-options input,.sound-container input{
+.music-further-options input,
+.sound-container input {
   vertical-align: middle;
   -webkit-appearance: none;
   outline: none;
@@ -97,9 +93,9 @@ body {
   height: 5px;
   background-color: black;
   background: rgb(255, 255, 255);
-} 
+}
 /* * ----------------------------MUSIC THUMB---------------------------- */
-.slider{
+.slider {
   left: 0px;
   top: 8px;
   width: 25rem;
@@ -129,7 +125,7 @@ input[type="range"]:hover::-webkit-slider-thumb {
 }
 .sound-container {
   grid-area: sound-container;
-  margin: 2.5rem 6rem 2.5rem 14rem ;
+  margin: 2.5rem 6rem 2.5rem 14rem;
   width: 11rem;
   padding: 0.5rem 0 0.5rem;
 }
@@ -139,15 +135,101 @@ footer p {
 .powered-by-link {
   font-size: 10px;
 }
-.play-pause-btn img{
+.play-pause-btn img {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.932);
   position: relative;
   top: -4px;
   left: -9px;
 }
-.music-further-options input, .music-further-options p {
+.music-further-options input,
+.music-further-options p {
   display: inline-block;
+}
+.poster {
+  width: 5rem;
+  height: 5rem;
+  margin: 1.7rem 1rem;
+  font-size: 12px;
+  text-align: center;
+  background-size: cover;
+}
+.main-div {
+  width: 102rem;
+  height: 41rem;
+  margin: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(248, 93, 255, 1) 100%
+  );
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.8fr 1.2fr;
+  grid-template-areas:
+    "big-tittle-and-poster"
+    "main-div-body";
+}
+.big-tittle-and-poster {
+  grid-area: big-tittle-and-poster;
+  width: 30rem;
+  height: 14rem;
+}
+.main-div-body {
+  grid-area: main-div-body;
+  /* background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 51%,
+    rgba(0, 0, 0, 0) 100%
+  ); */
+  margin: 1rem 2rem;
+  display: grid;
+  grid-template-columns: 0.05fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "col-0 col-1 col-2 col-3 col-4"
+    "col-0 col-1 col-2 col-3 col-4"
+    "col-0 col-1 col-2 col-3 col-4"
+    "col-0 col-1 col-2 col-3 col-4"
+    "col-0 col-1 col-2 col-3 col-4"
+    "col-0 col-1 col-2 col-3 col-4";
+}
+
+.main-div-body div {
+  display: inline-block;
+}
+.big-poster {
+  width: 12rem;
+  height: 12rem;
+  margin: 1rem;
+  background-color: rgba(41, 41, 51, 0.699);
+  display: inline-block;
+  background-image: url(../img/posters/big-poster.png);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.big-poster-label {
+  display: inline-block;
+  vertical-align: middle;
+  width: 15rem;
+  margin-bottom: 7rem;
+}
+.big-poster-label h2 {
+  font-size: 35px;
+  margin: 0.5rem 0rem;
+}
+.big-poster-label p {
+  font-size: 12px;
+}
+.top-row {
+  border-bottom: 1px solid rgba(199, 199, 199, 0.137);
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+.main-div-body p {
+  font-size: 14px;
+  margin: 1.5rem 0rem 1.5rem 0rem;
 }
 @media screen and (min-width: 481px) {
   body {
@@ -176,7 +258,7 @@ footer p {
     display: inline-block;
     margin: 2rem 10rem 2rem 4rem;
   }
-  .top-div-btns{
+  .top-div-btns {
     display: inline-block;
     margin: 2rem 5rem 2rem 60rem;
     width: 11.5rem;
@@ -198,7 +280,8 @@ footer p {
       "music-info playing-options"
       "music-info slide-container";
   }
-  .music-details, .poster{
+  .music-details,
+  .poster {
     display: inline-block;
   }
   footer {
@@ -265,6 +348,4 @@ footer p {
   h2 {
     margin: 1rem;
   }
-
-
 }

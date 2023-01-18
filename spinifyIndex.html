@@ -4,12 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="css/spinifyCSS.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap"
       rel="stylesheet"
     />
+
     <link rel="icon" type="image/png" href="img/logo/logo-bitmap-3.png" />
     <script defer src="js/spinifyJS.js"></script>
     <title>Spinify Web Player</title>
@@ -36,52 +38,115 @@
     </div>
 
     <main>
-      <div>
-        <h2>Browse all</h2>
-        <div class="music-gender-browser">
-          <div></div>
+      <div class="main-div">
+        <div class="big-tittle-and-poster">
+          <div class="big-poster"></div>
+          <div class="big-poster-label">
+            <p>Public playlist</p>
+            <h2>Playlist#1</h2>
+            <p>user15Jg1252ert &#8226; 5 songs, 10 min 49 sec</p>
+          </div>
+        </div>
+        <div class="main-div-body">
+          <div class="col-0">
+            <p class="top-row">#</p>
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+          </div>
+          <div class="col-1">
+            <p class="top-row">TITLE</p>
+            <p>Forest Lullaby</p>
+            <p>Life like</p>
+            <p>Lo-fi chillhop</p>
+            <p>Lo-fi study</p>
+            <p>Playing</p>
+          </div>
+          <div class="col-2">
+            <p class="top-row">ALBUM</p>
+            <p>Lesfm</p>
+            <p>AlexiAction</p>
+            <p>MusicUnlimited</p>
+            <p>Fassounds</p>
+            <p>Nullhertz</p>
+          </div>
+          <div class="col-3">
+            <p class="top-row">DATE ADDED</p>
+            <p>Insert function</p>
+            <p>Insert function</p>
+            <p>Insert function</p>
+            <p>Insert function</p>
+            <p>Insert function</p>
+          </div>
+          <div class="col-4">
+            <p class="top-row">Clock Icon</p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+          </div>
         </div>
       </div>
     </main>
+
     <div class="player">
       <div class="music-info">
         <div class="poster">Poster Unavailable</div>
         <div class="music-details">
           <p class="music-name">music name</p>
-          <p class="author">author</p>
+          <p class="music-artist">artist</p>
         </div>
       </div>
 
       <div class="playing-options">
         <div class="playing-options-btns">
           <button type="button" class="shuffle-btn btn">
+            S
             <!-- <img src="/img/player/icon-shuffle.png"/> -->
-            </button>
+          </button>
           <button class="go-back-btn btn">
+            P
             <!-- <img src="/img/player/go-back.svg"/> -->
           </button>
           <button class="play-pause-btn btn">
+            P
             <!-- <img src="/img/player/icon-pause-2.png"/> -->
           </button>
           <button class="go-forward-btn btn">
+            N
             <!-- <img src="/img/player/go-forward.svg"/> -->
           </button>
           <button class="repeat-btn btn">
+            R
             <!-- <img src="/img/player/icon-repeat.png"/> -->
           </button>
         </div>
 
         <div class="music-further-options">
-          <p>00:00</p>
-          <input class=slider type="range" class="music-slider" min="1" max="100" value="0">
-          <p>00:00</p>
+          <p class="current-time">00:00</p>
+          <input
+            type="range"
+            class="music-slider slider"
+            min="1"
+            max="100"
+            value="0"
+          />
+          <p class="time-left">00:00</p>
         </div>
 
         <div class="sound-container">
-          <button class="sound-btn btn"></button>
-          <input type="range" class="sound-slider" min="1" max="100" value="50">
+          <button class="sound-btn btn">V</button>
+          <input
+            type="range"
+            class="sound-slider"
+            min="1"
+            max="100"
+            value="75"
+          />
         </div>
-
       </div>
     </div>
     <footer>
