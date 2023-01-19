@@ -12,9 +12,21 @@ body {
   font-weight: 600;
   overflow-x: hidden;
   background-color: rgb(187, 148, 223);
+  color: rgba(255, 255, 255, 0.678);
 }
 p {
   font-weight: 300;
+}
+a,
+h1 {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+a:hover,
+h1:hover {
+  cursor: pointer;
+
+  color: white;
 }
 .top-div input {
   width: 10rem;
@@ -45,6 +57,7 @@ p {
 .music-details p {
   margin-top: 0.3rem;
   font-size: 14px;
+  color: white;
 }
 .btn {
   border-radius: 50%;
@@ -57,15 +70,12 @@ p {
   margin-right: 0.5rem;
   vertical-align: middle;
 }
-button:hover {
-  background-color: rgb(255, 255, 255);
-}
 
 .playing-options {
   margin: 0% 10%;
   display: grid;
   grid-template-columns: 1.5fr 0.5fr;
-  grid-template-rows: 1.5fr 0.5fr;
+  grid-template-rows: 1fr 1fr;
   grid-template-areas:
     "playing-options-btns sound-container"
     "music-further-options sound-container";
@@ -73,13 +83,73 @@ button:hover {
 .playing-options-btns {
   grid-area: playing-options-btns;
   display: inline-block;
-  margin: 2rem 22rem 0rem;
-  width: 14rem;
+  margin: 1.5rem 21.5rem 0.5rem 22.5rem;
+  padding: 0;
+  width: 13rem;
   vertical-align: middle;
+  z-index: 2;
+}
+.playing-options-btns button,
+.sound-btn {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0rem 0.2rem;
+
+  opacity: 0.7;
+}
+.play-pause-btn {
+  width: 35px;
+  height: 35px;
+  background-color: rgb(248, 241, 241) !important;
+  opacity: 1;
+  background: url(../img/icons/Play.png);
+}
+.pause {
+  background: url(../img/icons/Pause.png);
+}
+
+.go-forward-btn {
+  width: 25px;
+  height: 25px;
+  background: url(../img/icons/Next.png);
+  opacity: 0.5;
+}
+.go-back-btn {
+  width: 25px;
+  height: 25px;
+  background: url(../img/icons/Previous.png);
+}
+.shuffle-btn {
+  width: 28px;
+  height: 28px;
+  background: url(../img/icons/Shuffle.png);
+  margin-left: 0.5;
+}
+.repeat-btn {
+  width: 28px;
+  height: 28px;
+  background: url(../img/icons/Repeat.png);
+}
+.sound-btn {
+  border-radius: 0;
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  margin: 0rem 0.2rem;
+  width: 50px;
+  height: 50px;
+  background: url(../img/icons/VolumeOn.png);
+  padding: 0;
+  margin: 1;
+}
+button:hover {
+  opacity: 1;
 }
 .music-further-options {
   grid-area: music-further-options;
-  margin: 0rem 14rem 0.5rem;
+  margin: 0.5rem 14rem 0rem;
+  z-index: 1;
 }
 .music-further-options input {
   margin: 0px;
@@ -122,11 +192,15 @@ input[type="range"]:hover::-webkit-slider-thumb {
 }
 .music-further-options p {
   font-size: 10px;
+  font-weight: bold;
+}
+.music-name {
+  font-weight: 600;
 }
 .sound-container {
   grid-area: sound-container;
-  margin: 2.5rem 6rem 2.5rem 14rem;
-  width: 11rem;
+  margin: 2.5rem 6rem 2.5rem 13rem;
+  width: 14rem;
   padding: 0.5rem 0 0.5rem;
 }
 footer p {
@@ -134,13 +208,6 @@ footer p {
 }
 .powered-by-link {
   font-size: 10px;
-}
-.play-pause-btn img {
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.932);
-  position: relative;
-  top: -4px;
-  left: -9px;
 }
 .music-further-options input,
 .music-further-options p {
@@ -158,18 +225,20 @@ footer p {
   width: 102rem;
   height: 41rem;
   margin: 0;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.5) 50%,
-    rgba(248, 93, 255, 1) 100%
-  );
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 0.8fr 1.2fr;
   grid-template-areas:
     "big-tittle-and-poster"
     "main-div-body";
+}
+.libary {
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(248, 93, 255, 1) 100%
+  );
 }
 .big-tittle-and-poster {
   grid-area: big-tittle-and-poster;

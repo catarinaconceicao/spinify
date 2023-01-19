@@ -1,3 +1,5 @@
+"use strict";
+
 const playPauseBtn = document.querySelector(".play-pause-btn");
 const shuffleBtn = document.querySelector(".shuffle-btn");
 const goBackBtn = document.querySelector(".go-back-btn");
@@ -17,8 +19,10 @@ let currentSong = document.createElement("audio");
 
 let index = 0;
 let playing = false;
+let repeat = false;
 let shuffle = false;
 let updateTimer;
+let sound = true;
 
 const songList = [
   {
@@ -53,15 +57,25 @@ const songList = [
   },
 ];
 
-loadSong(index);
-
 playPauseBtn.addEventListener("click", playPause);
 shuffleBtn.addEventListener("click", shuffling);
 goBackBtn.addEventListener("click", previousSong);
 goForwardBtn.addEventListener("click", nextSong);
 repeatBtn.addEventListener("click", repeating);
 musicSlider.addEventListener("change", slide);
+soundBtn.addEventListener("click", volume);
+
+//Working on it
+// function volume() {
+//   if (sound === true) {
+//     soundSlider.value = 0;
+//     currentSong.volume = soundSlider.value;
+//   }
+// }
+
 soundSlider.addEventListener("change", setVolume);
+
+loadSong(index);
 
 function loadSong(index) {
   clearInterval(updateTimer);
@@ -87,22 +101,40 @@ function init() {
 }
 function shuffling() {
   shuffle ? stopShuffle() : startShuffle();
-  console.log("shuffle");
 }
 function startShuffle() {
   shuffle = true;
-  //   shuffleBtn.classList.remove(shuffleActive);
+  console.log("shuffle");
+  shuffleBtn.style.background = "url(../img/icons/Shuffle-green.png)";
+  shuffleBtn.style.backgroundSize = "cover";
+  shuffleBtn.style.opacity = "1";
 }
 function stopShuffle() {
   shuffle = false;
-  shuffleBtn.classList.add(shuffleActive);
-  // Create class for shuffle button active state
+  console.log("stop shuffle");
+
+  shuffleBtn.style.background = "url(../img/icons/Shuffle.png)";
+  shuffleBtn.style.backgroundSize = "cover";
+  shuffleBtn.style.opacity = "0.7";
 }
 function repeating() {
-  let currentIndex = index;
-  loadSong(currentIndex);
-  playSong();
+  if (repeat === false) {
+    let currentIndex = index;
+    loadSong(currentIndex);
+    // ------------------Styling
+    repeatBtn.style.background = "url(../img/icons/Repeat-green.png)";
+    repeatBtn.style.backgroundSize = "cover";
+    repeatBtn.style.opacity = "1";
+    repeatBtn.style.width = "28px";
+    repeatBtn.style.height = "28px";
+  }
+  if (repeat === true) {
+    if (index == songList.length - 1) {
+      pauseSong();
+    }
+  }
 }
+
 function playPause() {
   playing ? pauseSong() : playSong();
 }
@@ -110,18 +142,21 @@ function playSong() {
   currentSong.play();
   playing = true;
   console.log("play");
+  // ------------------Styling
+  playPauseBtn.classList.remove("pause");
 }
 function pauseSong() {
   currentSong.pause();
   playing = false;
   console.log("pause");
+  // ------------------Styling
+  playPauseBtn.classList.add("pause");
 }
 
 function nextSong() {
   if (index < songList.length - 1 && shuffle === false) {
-    ++index;
-  }
-  if (index < songList.length - 1 && shuffle === true) {
+    index += 1;
+  } else if (index < songList.length - 1 && shuffle === true) {
     let randomIndex = Number.parseInt(Math.random() * songList.length);
     index = randomIndex;
   } else {
@@ -181,3 +216,27 @@ function setUpdate() {
 }
 
 // soundBtn.addEventListener("click");
+
+const playlistDate = new Date(2023, 0, 17, 14, 50, 0);
+const now = new Date();
+const [month, day, hour, minute] = [
+  now.getMonth(),
+  now.getDate(),
+  now.getHours(),
+  now.getMinutes(),
+];
+
+let diff = now.getTime() - playlistDate.getTime();
+
+diff = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+let addedSentence = `Added ${diff} days ago`;
+
+const audio = document.createElement("audio");
+let source = songList[1].url;
+
+function getDuration() {
+  let a = audio.source.duration;
+  console.log(a);
+}
+getDuration();

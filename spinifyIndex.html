@@ -38,7 +38,8 @@
     </div>
 
     <main>
-      <div class="main-div">
+      <div class="main-div library">
+        <!-- `
         <div class="big-tittle-and-poster">
           <div class="big-poster"></div>
           <div class="big-poster-label">
@@ -50,45 +51,46 @@
         <div class="main-div-body">
           <div class="col-0">
             <p class="top-row">#</p>
-            <p>1</p>
-            <p>2</p>
-            <p>3</p>
-            <p>4</p>
-            <p>5</p>
+            <p>${index + 1}</p>
+            <p>${index + 2}</p>
+            <p>${index + 3}</p>
+            <p>${index + 4}</p>
+            <p>${index + 5}</p>
           </div>
           <div class="col-1">
             <p class="top-row">TITLE</p>
-            <p>Forest Lullaby</p>
-            <p>Life like</p>
-            <p>Lo-fi chillhop</p>
-            <p>Lo-fi study</p>
-            <p>Playing</p>
+            <p>${songList[0].tittle}</p>
+            <p>${songList[1].tittle}</p>
+            <p>${songList[2].tittle}</p>
+            <p>${songList[3].tittle}</p>
+            <p>${songList[4].tittle}</p>
           </div>
           <div class="col-2">
             <p class="top-row">ALBUM</p>
-            <p>Lesfm</p>
-            <p>AlexiAction</p>
-            <p>MusicUnlimited</p>
-            <p>Fassounds</p>
-            <p>Nullhertz</p>
+            <p>${songList[0].artist}</p>
+            <p>${songList[1].artist}</p>
+            <p>${songList[2].artist}</p>
+            <p>${songList[3].artist}</p>
+            <p>${songList[4].artist}</p>
           </div>
           <div class="col-3">
             <p class="top-row">DATE ADDED</p>
-            <p>Insert function</p>
-            <p>Insert function</p>
-            <p>Insert function</p>
-            <p>Insert function</p>
-            <p>Insert function</p>
+            <p>${addedSentence}</p>
+            <p>${addedSentence}</p>
+            <p>${addedSentence}</p>
+            <p>${addedSentence}</p>
+            <p>${addedSentence}</p>
           </div>
           <div class="col-4">
             <p class="top-row">Clock Icon</p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
+            <p>${songList[0].duration}</p>
+            <p>${songList[1].duration}</p>
+            <p>${songList[2].duration}</p>
+            <p>${songList[3].duration}</p>
+            <p>${songList[4].duration}</p>
           </div>
         </div>
+        ` -->
       </div>
     </main>
 
@@ -104,24 +106,19 @@
       <div class="playing-options">
         <div class="playing-options-btns">
           <button type="button" class="shuffle-btn btn">
-            S
-            <!-- <img src="/img/player/icon-shuffle.png"/> -->
+            <!-- <img src="/img/icons/Shuffle.png" /> -->
           </button>
           <button class="go-back-btn btn">
-            P
-            <!-- <img src="/img/player/go-back.svg"/> -->
+            <!-- <img src="/img/icons/Previous.png" /> -->
           </button>
-          <button class="play-pause-btn btn">
-            P
-            <!-- <img src="/img/player/icon-pause-2.png"/> -->
+          <button class="play-pause-btn btn pause">
+            <!-- <img src="/img/icons/Play.png" /> -->
           </button>
           <button class="go-forward-btn btn">
-            N
-            <!-- <img src="/img/player/go-forward.svg"/> -->
+            <!-- <img src="/img/icons/Next.png" /> -->
           </button>
           <button class="repeat-btn btn">
-            R
-            <!-- <img src="/img/player/icon-repeat.png"/> -->
+            <!-- <img src="/img/icons/Repeat.png" /> -->
           </button>
         </div>
 
@@ -138,7 +135,7 @@
         </div>
 
         <div class="sound-container">
-          <button class="sound-btn btn">V</button>
+          <button class="sound-btn btn"></button>
           <input
             type="range"
             class="sound-slider"
