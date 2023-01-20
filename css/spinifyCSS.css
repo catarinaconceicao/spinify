@@ -35,10 +35,11 @@ h1:hover {
   border-color: rgba(240, 248, 255, 0);
   height: 1.5rem;
 }
-.top-div button {
-  width: 5rem;
-  border-radius: 50px;
+.user-p {
+  width: 10rem;
+  display: inline;
 }
+
 .music-info {
   display: grid;
   grid-template-columns: 0.7fr 1fr;
@@ -70,7 +71,11 @@ h1:hover {
   margin-right: 0.5rem;
   vertical-align: middle;
 }
-
+.sign-out-btn button {
+  display: inline;
+  width: 5rem;
+  border-radius: 50px;
+}
 .playing-options {
   margin: 0% 10%;
   display: grid;
@@ -124,30 +129,48 @@ h1:hover {
   width: 28px;
   height: 28px;
   background: url(../img/icons/Shuffle.png);
-  margin-left: 0.5;
+}
+.shuffle {
+  width: 28px;
+  height: 28px;
+  background: url(../img/icons/Shuffle-green.png);
+  opacity: 1;
 }
 .repeat-btn {
   width: 28px;
   height: 28px;
   background: url(../img/icons/Repeat.png);
 }
+.repeat {
+  width: 28px;
+  height: 28px;
+  background: url(../img/icons/Repeat-green.png);
+  opacity: 1;
+}
 .sound-btn {
   border-radius: 0;
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
-  margin: 0rem 0.2rem;
   width: 50px;
   height: 50px;
   background: url(../img/icons/VolumeOn.png);
-  padding: 0;
-  margin: 1;
+}
+.mute {
+  border-radius: 0;
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  background: url(../img/icons/Mute.png);
 }
 button:hover {
   opacity: 1;
 }
 .music-further-options {
   grid-area: music-further-options;
+  width: 31rem;
   margin: 0.5rem 14rem 0rem;
   z-index: 1;
 }
@@ -221,7 +244,7 @@ footer p {
   text-align: center;
   background-size: cover;
 }
-.main-div {
+.library {
   width: 102rem;
   height: 41rem;
   margin: 0;
@@ -232,7 +255,7 @@ footer p {
     "big-tittle-and-poster"
     "main-div-body";
 }
-.libary {
+.library {
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 0) 0%,
@@ -300,12 +323,31 @@ footer p {
   font-size: 14px;
   margin: 1.5rem 0rem 1.5rem 0rem;
 }
+.folders-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  overflow-y: scroll;
+}
+.search h2 {
+  width: 10rem;
+  height: 3rem;
+}
+.folder {
+  width: 8rem;
+  height: 8rem;
+  margin: 1rem 0rem 0 0.2rem;
+  padding: 0.5rem;
+  background-color: blueviolet;
+  border-radius: 5px;
+  color: white;
+}
 @media screen and (min-width: 481px) {
   body {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 0.5fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
-      "header top-div top-div top-div top-div"
+      "header input-bar top-div top-div top-div"
       "header main main main main"
       "header main main main main"
       "header main main main main"
@@ -319,6 +361,9 @@ footer p {
   }
   .top-div {
     grid-area: top-div;
+    display: grid;
+    grid-template-columns: 0.3fr 0.8fr;
+    grid-template-rows: 1fr;
     background-color: rgb(8, 8, 8);
     width: 85vw;
     height: 10vh;
@@ -327,15 +372,21 @@ footer p {
     display: inline-block;
     margin: 2rem 10rem 2rem 4rem;
   }
-  .top-div-btns {
+  .top-div-details {
     display: inline-block;
-    margin: 2rem 5rem 2rem 60rem;
-    width: 11.5rem;
+    margin: 2rem 5rem 2rem 50rem;
+    width: 20rem;
   }
   main {
     grid-area: main;
     background-color: rgb(17, 17, 17);
     height: 70vh;
+  }
+  .main-div {
+    height: 97%;
+    width: 97%;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.705);
   }
   .player {
     grid-area: player;

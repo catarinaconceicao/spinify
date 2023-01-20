@@ -21,9 +21,9 @@
       <img href="img/logo/logo-bitmap.png" />
       <h1>Spinify</h1>
       <nav>
-        <a>🏠 Home</a><br />
-        <a>🔎 Search</a><br />
-        <a>📗 Library</a><br />
+        <a class="home-btn">🏠 Home</a><br />
+        <a class="search-btn">🔎 Search</a><br />
+        <a class="library-btn">📗 Library</a><br />
       </nav>
     </header>
 
@@ -31,67 +31,14 @@
       <div class="input-bar">
         <input type="search" placeholder="Choose your poison" />
       </div>
-      <div class="top-div-btns">
-        <button class="sign-up btn">Sign up</button>
-        <button class="log-in btn">Log in</button>
+      <div class="top-div-details">
+        <p class="user-p">Hi, user15Jg1252ert!</p>
+        <button class="sign-out-btn btn">Sign out</button>
       </div>
     </div>
 
     <main>
-      <div class="main-div library">
-        <!-- `
-        <div class="big-tittle-and-poster">
-          <div class="big-poster"></div>
-          <div class="big-poster-label">
-            <p>Public playlist</p>
-            <h2>Playlist#1</h2>
-            <p>user15Jg1252ert &#8226; 5 songs, 10 min 49 sec</p>
-          </div>
-        </div>
-        <div class="main-div-body">
-          <div class="col-0">
-            <p class="top-row">#</p>
-            <p>${index + 1}</p>
-            <p>${index + 2}</p>
-            <p>${index + 3}</p>
-            <p>${index + 4}</p>
-            <p>${index + 5}</p>
-          </div>
-          <div class="col-1">
-            <p class="top-row">TITLE</p>
-            <p>${songList[0].tittle}</p>
-            <p>${songList[1].tittle}</p>
-            <p>${songList[2].tittle}</p>
-            <p>${songList[3].tittle}</p>
-            <p>${songList[4].tittle}</p>
-          </div>
-          <div class="col-2">
-            <p class="top-row">ALBUM</p>
-            <p>${songList[0].artist}</p>
-            <p>${songList[1].artist}</p>
-            <p>${songList[2].artist}</p>
-            <p>${songList[3].artist}</p>
-            <p>${songList[4].artist}</p>
-          </div>
-          <div class="col-3">
-            <p class="top-row">DATE ADDED</p>
-            <p>${addedSentence}</p>
-            <p>${addedSentence}</p>
-            <p>${addedSentence}</p>
-            <p>${addedSentence}</p>
-            <p>${addedSentence}</p>
-          </div>
-          <div class="col-4">
-            <p class="top-row">Clock Icon</p>
-            <p>${songList[0].duration}</p>
-            <p>${songList[1].duration}</p>
-            <p>${songList[2].duration}</p>
-            <p>${songList[3].duration}</p>
-            <p>${songList[4].duration}</p>
-          </div>
-        </div>
-        ` -->
-      </div>
+      <div class="main-div"></div>
     </main>
 
     <div class="player">
@@ -105,21 +52,11 @@
 
       <div class="playing-options">
         <div class="playing-options-btns">
-          <button type="button" class="shuffle-btn btn">
-            <!-- <img src="/img/icons/Shuffle.png" /> -->
-          </button>
-          <button class="go-back-btn btn">
-            <!-- <img src="/img/icons/Previous.png" /> -->
-          </button>
-          <button class="play-pause-btn btn pause">
-            <!-- <img src="/img/icons/Play.png" /> -->
-          </button>
-          <button class="go-forward-btn btn">
-            <!-- <img src="/img/icons/Next.png" /> -->
-          </button>
-          <button class="repeat-btn btn">
-            <!-- <img src="/img/icons/Repeat.png" /> -->
-          </button>
+          <button type="button" class="shuffle-btn btn"></button>
+          <button class="go-back-btn btn"></button>
+          <button class="play-pause-btn btn pause"></button>
+          <button class="go-forward-btn btn"></button>
+          <button class="repeat-btn btn"></button>
         </div>
 
         <div class="music-further-options">
@@ -147,16 +84,16 @@
       </div>
     </div>
     <footer>
-      <!-- <div class="preview">
-        <p class="preview-para-1">Preview of Spinify</p><br>
+      <div class="preview">
         <p class="preview-para-2">
           Sign up for unlimited songs and podcasts withs tons of ads! No credit
           card needed.
-        </p><br>
+        </p>
+        <br />
         <p>Powered by</p>
         <a class="powered-by-link" href="https://pixabay.com/">Pixabay</a>
       </div>
-      <button class="sign-up-for-free-btn">Sign up for free</button> -->
+      <button class="sign-up-for-free-btn">Sign up for free</button>
     </footer>
   </body>
 </html>

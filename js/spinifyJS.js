@@ -7,6 +7,11 @@ const goForwardBtn = document.querySelector(".go-forward-btn");
 const repeatBtn = document.querySelector(".repeat-btn");
 const soundBtn = document.querySelector(".sound-btn");
 
+const home = document.querySelector(".home-btn");
+const search = document.querySelector(".search-btn");
+const library = document.querySelector(".library-btn");
+const mainModule = document.querySelector(".main-div");
+
 const songPoster = document.querySelector(".poster");
 const songTittle = document.querySelector(".music-name");
 const songArtist = document.querySelector(".music-artist");
@@ -22,8 +27,13 @@ let playing = false;
 let repeat = false;
 let shuffle = false;
 let updateTimer;
-let sound = true;
 
+function mainModuleReset() {
+  mainModule.innerHTML = "";
+  mainModule.classList.remove("search");
+  mainModule.classList.remove("library");
+  mainModule.classList.remove("home");
+}
 const songList = [
   {
     tittle: "Forest Lullaby",
@@ -62,17 +72,9 @@ shuffleBtn.addEventListener("click", shuffling);
 goBackBtn.addEventListener("click", previousSong);
 goForwardBtn.addEventListener("click", nextSong);
 repeatBtn.addEventListener("click", repeating);
-musicSlider.addEventListener("change", slide);
 soundBtn.addEventListener("click", volume);
 
-//Working on it
-// function volume() {
-//   if (sound === true) {
-//     soundSlider.value = 0;
-//     currentSong.volume = soundSlider.value;
-//   }
-// }
-
+musicSlider.addEventListener("change", slide);
 soundSlider.addEventListener("change", setVolume);
 
 loadSong(index);
@@ -93,7 +95,6 @@ function loadSong(index) {
 
   currentSong.addEventListener("ended", nextSong);
 }
-
 function init() {
   currentTime.textContent = "00:00";
   songDuration.textContent = "00:00";
@@ -104,37 +105,28 @@ function shuffling() {
 }
 function startShuffle() {
   shuffle = true;
-  console.log("shuffle");
-  shuffleBtn.style.background = "url(../img/icons/Shuffle-green.png)";
-  shuffleBtn.style.backgroundSize = "cover";
-  shuffleBtn.style.opacity = "1";
+  shuffleBtn.classList.add("shuffle"); // ------------------Styling
 }
 function stopShuffle() {
   shuffle = false;
-  console.log("stop shuffle");
-
-  shuffleBtn.style.background = "url(../img/icons/Shuffle.png)";
-  shuffleBtn.style.backgroundSize = "cover";
-  shuffleBtn.style.opacity = "0.7";
+  shuffleBtn.classList.remove("shuffle"); // ------------------Styling
 }
 function repeating() {
-  if (repeat === false) {
-    let currentIndex = index;
-    loadSong(currentIndex);
-    // ------------------Styling
-    repeatBtn.style.background = "url(../img/icons/Repeat-green.png)";
-    repeatBtn.style.backgroundSize = "cover";
-    repeatBtn.style.opacity = "1";
-    repeatBtn.style.width = "28px";
-    repeatBtn.style.height = "28px";
-  }
-  if (repeat === true) {
-    if (index == songList.length - 1) {
-      pauseSong();
+  if (!repeatBtn.classList.contains("repeat")) {
+    currentSong.addEventListener("ended", nextSong);
+    repeatBtn.classList.add("repeat"); // ------------------Styling
+    console.log(`repeat`);
+  } else {
+    repeatBtn.classList.remove("repeat"); // ------------------Styling
+    if ((index = songList.length - 1)) {
+      currentSong.addEventListener("ended", pauseSong);
+      console.log(`dont repeat`);
+    } else {
+      currentSong.addEventListener("ended", nextSong);
+      console.log(`dont repeat`);
     }
   }
 }
-
 function playPause() {
   playing ? pauseSong() : playSong();
 }
@@ -142,17 +134,14 @@ function playSong() {
   currentSong.play();
   playing = true;
   console.log("play");
-  // ------------------Styling
-  playPauseBtn.classList.remove("pause");
+  playPauseBtn.classList.remove("pause"); // ------------------Styling
 }
 function pauseSong() {
   currentSong.pause();
   playing = false;
   console.log("pause");
-  // ------------------Styling
-  playPauseBtn.classList.add("pause");
+  playPauseBtn.classList.add("pause"); // ------------------Styling
 }
-
 function nextSong() {
   if (index < songList.length - 1 && shuffle === false) {
     index += 1;
@@ -165,7 +154,6 @@ function nextSong() {
   loadSong(index);
   playSong();
 }
-
 function previousSong() {
   if (index > 0) {
     --index;
@@ -215,8 +203,6 @@ function setUpdate() {
   }
 }
 
-// soundBtn.addEventListener("click");
-
 const playlistDate = new Date(2023, 0, 17, 14, 50, 0);
 const now = new Date();
 const [month, day, hour, minute] = [
@@ -232,11 +218,121 @@ diff = Math.floor(diff / (1000 * 60 * 60 * 24));
 
 let addedSentence = `Added ${diff} days ago`;
 
-const audio = document.createElement("audio");
-let source = songList[1].url;
+// const audio = document.createElement("audio");
+// let source = songList[1].url;
 
-function getDuration() {
-  let a = audio.source.duration;
-  console.log(a);
+// function getDuration() {
+//   let a = audio.source.duration;
+//   console.log(a);
+// }
+// getDuration();
+
+function volume() {
+  if (currentSong.volume > 0) {
+    soundSlider.value = 0;
+    currentSong.volume = 0;
+
+    soundBtn.classList.toggle("mute");
+  } else {
+    soundSlider.value = 75;
+    currentSong.volume = 0.75;
+
+    soundBtn.classList.toggle("mute");
+  }
 }
-getDuration();
+
+function libraryModule() {
+  mainModuleReset();
+
+  mainModule.innerHTML = `<div class="big-tittle-and-poster">
+    <div class="big-poster"></div>
+    <div class="big-poster-label">
+      <p>Public playlist</p>
+      <h2>Playlist#1</h2>
+      <p>user15Jg1252ert &#8226; 5 songs, 10 min 49 sec</p>
+    </div>
+  </div>
+  <div class="main-div-body">
+    <div class="col-0">
+      <p class="top-row">#</p>
+      <p>${index + 1}</p>
+      <p>${index + 2}</p>
+      <p>${index + 3}</p>
+      <p>${index + 4}</p>
+      <p>${index + 5}</p>
+    </div>
+    <div class="col-1">
+      <p class="top-row">TITLE</p>
+      <p>${songList[0].tittle}</p>
+      <p>${songList[1].tittle}</p>
+      <p>${songList[2].tittle}</p>
+      <p>${songList[3].tittle}</p>
+      <p>${songList[4].tittle}</p>
+    </div>
+    <div class="col-2">
+      <p class="top-row">ALBUM</p>
+      <p>${songList[0].artist}</p>
+      <p>${songList[1].artist}</p>
+      <p>${songList[2].artist}</p>
+      <p>${songList[3].artist}</p>
+      <p>${songList[4].artist}</p>
+    </div>
+    <div class="col-3">
+      <p class="top-row">DATE ADDED</p>
+      <p>${addedSentence}</p>
+      <p>${addedSentence}</p>
+      <p>${addedSentence}</p>
+      <p>${addedSentence}</p>
+      <p>${addedSentence}</p>
+    </div>
+    <div class="col-4">
+      <p class="top-row">Clock Icon</p>
+      <p>${songList[0].duration}</p>
+      <p>${songList[1].duration}</p>
+      <p>${songList[2].duration}</p>
+      <p>${songList[3].duration}</p>
+      <p>${songList[4].duration}</p>
+    </div>
+  </div>`;
+}
+function searchModule() {
+  mainModuleReset();
+  mainModule.innerHTML = `<h2>Browse all</h2>
+        <div class="folders-div">
+          <div class="folder">Podcasts</div>
+          <div class="folder">Made For You</div>
+          <div class="folder">New Releases</div>
+          <div class="folder">Pop</div>
+          <div class="folder">Latin</div>
+          <div class="folder">Hip-Hop</div>
+          <div class="folder">Live Events</div>
+          <div class="folder">Rock</div>
+          <div class="folder">Dance/ Eletronic</div>
+          <div class="folder">Discover</div>
+          <div class="folder">Indie</div>
+          <div class="folder">Workout</div>
+          <div class="folder">Chill</div>
+          <div class="folder">R&B</div>
+          <div class="folder">K-pop</div>
+          <div class="folder">Sleep</div>
+          <div class="folder">Party</div>
+          <div class="folder">At Home</div>
+          <div class="folder">Decades</div>
+          <div class="folder">Romance</div>
+          <div class="folder">Metal</div>
+          <div class="folder">Anime</div>
+          <div class="folder">Trending</div>
+          <div class="folder">Classical</div>
+          <div class="folder">Acoustic</div>
+          <div class="folder">Focus</div>
+          <div class="folder">Soul</div>
+          <div class="folder">Gaming</div>
+          <div class="folder">Punk</div>
+          <div class="folder">Ambient</div>
+          <div class="folder">Blues</div>
+          <div class="folder">Karaoke</div>
+        </div>`;
+}
+
+library.addEventListener("click", libraryModule);
+search.addEventListener("click", searchModule);
