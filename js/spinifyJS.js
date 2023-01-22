@@ -11,6 +11,7 @@ const home = document.querySelector(".home-btn");
 const search = document.querySelector(".search-btn");
 const library = document.querySelector(".library-btn");
 const mainModule = document.querySelector(".main-div");
+let folder = mainModule.querySelectorAll(".folder");
 
 const songPoster = document.querySelector(".poster");
 const songTittle = document.querySelector(".music-name");
@@ -30,10 +31,19 @@ let updateTimer;
 
 function mainModuleReset() {
   mainModule.innerHTML = "";
+  mainModule.classList.remove("home");
   mainModule.classList.remove("search");
   mainModule.classList.remove("library");
-  mainModule.classList.remove("home");
 }
+const randColor = () => {
+  return (
+    "#" +
+    Math.floor(Math.random() * 16777215)
+      .toString(16)
+      .padStart(6, "0")
+      .toUpperCase()
+  );
+};
 const songList = [
   {
     tittle: "Forest Lullaby",
@@ -62,7 +72,7 @@ const songList = [
   {
     tittle: "Playing in color",
     artist: "Nullhertz",
-    image: "../img/posters/playing.jpg",
+    image: "../img/posters/playing.png",
     url: "../audio/playing-in-color-nullhertz.mp3",
   },
 ];
@@ -203,6 +213,8 @@ function setUpdate() {
   }
 }
 
+// -------------------------------------------- MAIN MODULE
+// -------------------------------------------- MAIN MODULE
 const playlistDate = new Date(2023, 0, 17, 14, 50, 0);
 const now = new Date();
 const [month, day, hour, minute] = [
@@ -213,19 +225,8 @@ const [month, day, hour, minute] = [
 ];
 
 let diff = now.getTime() - playlistDate.getTime();
-
 diff = Math.floor(diff / (1000 * 60 * 60 * 24));
-
 let addedSentence = `Added ${diff} days ago`;
-
-// const audio = document.createElement("audio");
-// let source = songList[1].url;
-
-// function getDuration() {
-//   let a = audio.source.duration;
-//   console.log(a);
-// }
-// getDuration();
 
 function volume() {
   if (currentSong.volume > 0) {
@@ -241,8 +242,17 @@ function volume() {
   }
 }
 
+function getDuration(songIndex) {
+  currentSong.src = songList[songIndex].url;
+  return;
+}
 function libraryModule() {
   mainModuleReset();
+  mainModule.classList.add("library");
+
+  //Add way to calculate duration
+  // currentSong.src = songList[index].url;
+  // currentSong.duration;
 
   mainModule.innerHTML = `<div class="big-tittle-and-poster">
     <div class="big-poster"></div>
@@ -287,7 +297,7 @@ function libraryModule() {
     </div>
     <div class="col-4">
       <p class="top-row">Clock Icon</p>
-      <p>${songList[0].duration}</p>
+      <p>${currentSong.duration}</p>
       <p>${songList[1].duration}</p>
       <p>${songList[2].duration}</p>
       <p>${songList[3].duration}</p>
@@ -297,28 +307,30 @@ function libraryModule() {
 }
 function searchModule() {
   mainModuleReset();
+  mainModule.classList.add("search");
+
   mainModule.innerHTML = `<h2>Browse all</h2>
-        <div class="folders-div">
-          <div class="folder">Podcasts</div>
-          <div class="folder">Made For You</div>
-          <div class="folder">New Releases</div>
-          <div class="folder">Pop</div>
-          <div class="folder">Latin</div>
-          <div class="folder">Hip-Hop</div>
-          <div class="folder">Live Events</div>
-          <div class="folder">Rock</div>
-          <div class="folder">Dance/ Eletronic</div>
-          <div class="folder">Discover</div>
-          <div class="folder">Indie</div>
-          <div class="folder">Workout</div>
-          <div class="folder">Chill</div>
-          <div class="folder">R&B</div>
-          <div class="folder">K-pop</div>
-          <div class="folder">Sleep</div>
-          <div class="folder">Party</div>
-          <div class="folder">At Home</div>
-          <div class="folder">Decades</div>
-          <div class="folder">Romance</div>
+  <div class="folders-div">
+  <div class="folder">Podcasts</div>
+  <div class="folder">Made For You</div>
+  <div class="folder">New Releases</div>
+  <div class="folder">Pop</div>
+  <div class="folder">Latin</div>
+  <div class="folder">Hip-Hop</div>
+  <div class="folder">Live Events</div>
+  <div class="folder">Rock</div>
+  <div class="folder">Dance/ Eletronic</div>
+  <div class="folder">Discover</div>
+  <div class="folder">Indie</div>
+  <div class="folder">Workout</div>
+  <div class="folder">Chill</div>
+  <div class="folder">R&B</div>
+  <div class="folder">K-pop</div>
+  <div class="folder">Sleep</div>
+  <div class="folder">Party</div>
+  <div class="folder">At Home</div>
+  <div class="folder">Decades</div>
+  <div class="folder">Romance</div>
           <div class="folder">Metal</div>
           <div class="folder">Anime</div>
           <div class="folder">Trending</div>
@@ -331,8 +343,68 @@ function searchModule() {
           <div class="folder">Ambient</div>
           <div class="folder">Blues</div>
           <div class="folder">Karaoke</div>
-        </div>`;
-}
+          </div>`;
+  folder = mainModule.querySelectorAll(".folder");
 
-library.addEventListener("click", libraryModule);
+  folder.style.backgroundColor = "black";
+}
+function homeModule() {
+  mainModuleReset();
+  mainModule.classList.add("home");
+
+  mainModule.innerHTML = `<h2>Hi, there!</h2>
+          <p>(These are dummy buttons)</p>
+          <div class="home-div">
+          <div class="home-div-folder-1">
+          <div class="folders-home-1">
+          <div class="div"></div>
+          <div class="playlist-name">Aenean varius</div>
+          </div>
+      <div class="folders-home-1">
+        <div class="div"></div>
+        <div class="playlist-name">Suspendisse vel</div>
+      </div>
+      <div class="folders-home-1">
+        <div class="div"></div>
+        <div class="playlist-name">Quisque at tempus</div>
+      </div>
+      <div class="folders-home-1">
+        <div class="div"></div>
+        <div class="playlist-name">Nam vehicula</div>
+      </div>
+      <div class="folders-home-1">
+        <div class="div"></div>
+        <div class="playlist-name">Duis nunc neque</div>
+      </div>
+      <div class="folders-home-1">
+        <div class="div"></div>
+        <div class="playlist-name">Aliquam erat</div>
+      </div>
+      </div>
+      <h2>Your shows</h2>
+      <div class="home-div-folder-2">
+        <div class="folders-home-2">
+          <div></div>
+          <h3>Podcast 1</h3>
+        </div>
+        <div class="folders-home-2">
+          <div></div>
+          <h3>Podcast 2</h3>
+        </div>
+        <div class="folders-home-2">
+          <div></div>
+          <h3>Podcast 3</h3>
+        </div>
+        <div class="folders-home-2">
+          <div></div>
+          <h3>Podcast 4</h3>
+        </div>
+        </div>
+        </div>
+   `;
+}
+libraryModule();
+
+home.addEventListener("click", homeModule);
 search.addEventListener("click", searchModule);
+library.addEventListener("click", libraryModule);

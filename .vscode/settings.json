@@ -1,52 +1,52 @@
 {
-    "better-comments.tags": [
+  "better-comments.tags": [
+    { "better-comments.multilineComments": true },
 
-        {"better-comments.multilineComments": true},
-
-        {
-            "tag": "!",
-            "color": "#ffffff",
-            "strikethrough": false,
-            "underline": true,
-            "backgroundColor": "#da2b2b",
-            "bold": true,
-            "italic": false
-        },
-        {
-            "tag": "?",
-            "color": "#ff29d4",
-            "strikethrough": false,
-            "underline": true,
-            "backgroundColor": "transparent",
-            "bold": true,
-            "italic": false
-        },
-        {
-            "tag": "//",
-            "color": "#f480ff",
-            "strikethrough": true,
-            "underline": false,
-            "backgroundColor": "transparent",
-            "bold": true,
-            "italic": false
-        },
-        {
-            "tag": "todo",
-            "color": "#d65d00",
-            "strikethrough": false,
-            "underline": false,
-            "backgroundColor": "transparent",
-            "bold": true,
-            "italic": false
-        },
-        {
-            "tag": "*",
-            "color": "#2cf000",
-            "strikethrough": false,
-            "underline": false,
-            "backgroundColor": "transparent",
-            "bold": true,
-            "italic": false
-        }
-    ]
+    {
+      "tag": "!",
+      "color": "#ffffff",
+      "strikethrough": false,
+      "underline": true,
+      "backgroundColor": "#da2b2b",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "?",
+      "color": "#ff29d4",
+      "strikethrough": false,
+      "underline": true,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "//",
+      "color": "#f480ff",
+      "strikethrough": true,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "todo",
+      "color": "#d65d00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "*",
+      "color": "#2cf000",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    }
+  ],
+  "liveServer.settings.port": 5501
 }
