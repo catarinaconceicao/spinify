@@ -72,7 +72,7 @@ const songList = [
   {
     tittle: "Playing in color",
     artist: "Nullhertz",
-    image: "../img/posters/playing.png",
+    image: "../img/posters/playing.jpg",
     url: "../audio/playing-in-color-nullhertz.mp3",
   },
 ];
