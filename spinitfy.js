@@ -48,32 +48,32 @@ const songList = [
   {
     tittle: "Forest Lullaby",
     artist: "Lesfm",
-    image: "../img/posters/forest-lullaby.jpg",
-    url: "../audio/forest-lullaby-lesfm.mp3",
+    image: "img/posters/forest-lullaby.jpg",
+    url: "audio/forest-lullaby-lesfm.mp3",
   },
   {
     tittle: "Life Like",
     artist: "AlexAction",
-    image: "../img/posters/lifelike.jpg",
-    url: "../audio/lifelike-alexiaction.mp3",
+    image: "img/posters/lifelike.jpg",
+    url: "audio/lifelike-alexiaction.mp3",
   },
   {
     tittle: "Lo-Fi Chillhop",
     artist: "Music Unlimited",
-    image: "../img/posters/lo-fi.jpg",
-    url: "../audio/lo-fi-chillhop-beat-background-music-musicunlimited.mp3",
+    image: "img/posters/lo-fi.jpg",
+    url: "audio/lo-fi-chillhop-beat-background-music-musicunlimited.mp3",
   },
   {
     tittle: "Lo-Fi Study",
     artist: "Fassounds",
-    image: "../img/posters/lo-fi-2.jpg",
-    url: "../audio/lofi-study-fassounds.mp3",
+    image: "img/posters/lo-fi-2.jpg",
+    url: "audio/lofi-study-fassounds.mp3",
   },
   {
     tittle: "Playing in color",
     artist: "Nullhertz",
-    image: "../img/posters/playing.jpg",
-    url: "../audio/playing-in-color-nullhertz.mp3",
+    image: "img/posters/playing.jpg",
+    url: "audio/playing-in-color-nullhertz.mp3",
   },
 ];
 
@@ -246,165 +246,3 @@ function getDuration(songIndex) {
   currentSong.src = songList[songIndex].url;
   return;
 }
-function libraryModule() {
-  mainModuleReset();
-  mainModule.classList.add("library");
-
-  //Add way to calculate duration
-  // currentSong.src = songList[index].url;
-  // currentSong.duration;
-
-  mainModule.innerHTML = `<div class="big-tittle-and-poster">
-    <div class="big-poster"></div>
-    <div class="big-poster-label">
-      <p>Public playlist</p>
-      <h2>Playlist#1</h2>
-      <p>user15Jg1252ert &#8226; 5 songs, 10 min 49 sec</p>
-    </div>
-  </div>
-  <div class="main-div-body">
-    <div class="col-0">
-      <p class="top-row">#</p>
-      <p>${index + 1}</p>
-      <p>${index + 2}</p>
-      <p>${index + 3}</p>
-      <p>${index + 4}</p>
-      <p>${index + 5}</p>
-    </div>
-    <div class="col-1">
-      <p class="top-row">TITLE</p>
-      <p>${songList[0].tittle}</p>
-      <p>${songList[1].tittle}</p>
-      <p>${songList[2].tittle}</p>
-      <p>${songList[3].tittle}</p>
-      <p>${songList[4].tittle}</p>
-    </div>
-    <div class="col-2">
-      <p class="top-row">ALBUM</p>
-      <p>${songList[0].artist}</p>
-      <p>${songList[1].artist}</p>
-      <p>${songList[2].artist}</p>
-      <p>${songList[3].artist}</p>
-      <p>${songList[4].artist}</p>
-    </div>
-    <div class="col-3">
-      <p class="top-row">DATE ADDED</p>
-      <p>${addedSentence}</p>
-      <p>${addedSentence}</p>
-      <p>${addedSentence}</p>
-      <p>${addedSentence}</p>
-      <p>${addedSentence}</p>
-    </div>
-    <div class="col-4">
-      <p class="top-row">Clock Icon</p>
-      <p>${currentSong.duration}</p>
-      <p>${songList[1].duration}</p>
-      <p>${songList[2].duration}</p>
-      <p>${songList[3].duration}</p>
-      <p>${songList[4].duration}</p>
-    </div>
-  </div>`;
-}
-function searchModule() {
-  mainModuleReset();
-  mainModule.classList.add("search");
-
-  mainModule.innerHTML = `<h2>Browse all</h2>
-  <div class="folders-div">
-  <div class="folder">Podcasts</div>
-  <div class="folder">Made For You</div>
-  <div class="folder">New Releases</div>
-  <div class="folder">Pop</div>
-  <div class="folder">Latin</div>
-  <div class="folder">Hip-Hop</div>
-  <div class="folder">Live Events</div>
-  <div class="folder">Rock</div>
-  <div class="folder">Dance/ Eletronic</div>
-  <div class="folder">Discover</div>
-  <div class="folder">Indie</div>
-  <div class="folder">Workout</div>
-  <div class="folder">Chill</div>
-  <div class="folder">R&B</div>
-  <div class="folder">K-pop</div>
-  <div class="folder">Sleep</div>
-  <div class="folder">Party</div>
-  <div class="folder">At Home</div>
-  <div class="folder">Decades</div>
-  <div class="folder">Romance</div>
-          <div class="folder">Metal</div>
-          <div class="folder">Anime</div>
-          <div class="folder">Trending</div>
-          <div class="folder">Classical</div>
-          <div class="folder">Acoustic</div>
-          <div class="folder">Focus</div>
-          <div class="folder">Soul</div>
-          <div class="folder">Gaming</div>
-          <div class="folder">Punk</div>
-          <div class="folder">Ambient</div>
-          <div class="folder">Blues</div>
-          <div class="folder">Karaoke</div>
-          </div>`;
-  folder = mainModule.querySelectorAll(".folder");
-
-  folder.style.backgroundColor = "black";
-}
-function homeModule() {
-  mainModuleReset();
-  mainModule.classList.add("home");
-
-  mainModule.innerHTML = `<h2>Hi, there!</h2>
-          <p>(These are dummy buttons)</p>
-          <div class="home-div">
-          <div class="home-div-folder-1">
-          <div class="folders-home-1">
-          <div class="div"></div>
-          <div class="playlist-name">Aenean varius</div>
-          </div>
-      <div class="folders-home-1">
-        <div class="div"></div>
-        <div class="playlist-name">Suspendisse vel</div>
-      </div>
-      <div class="folders-home-1">
-        <div class="div"></div>
-        <div class="playlist-name">Quisque at tempus</div>
-      </div>
-      <div class="folders-home-1">
-        <div class="div"></div>
-        <div class="playlist-name">Nam vehicula</div>
-      </div>
-      <div class="folders-home-1">
-        <div class="div"></div>
-        <div class="playlist-name">Duis nunc neque</div>
-      </div>
-      <div class="folders-home-1">
-        <div class="div"></div>
-        <div class="playlist-name">Aliquam erat</div>
-      </div>
-      </div>
-      <h2>Your shows</h2>
-      <div class="home-div-folder-2">
-        <div class="folders-home-2">
-          <div></div>
-          <h3>Podcast 1</h3>
-        </div>
-        <div class="folders-home-2">
-          <div></div>
-          <h3>Podcast 2</h3>
-        </div>
-        <div class="folders-home-2">
-          <div></div>
-          <h3>Podcast 3</h3>
-        </div>
-        <div class="folders-home-2">
-          <div></div>
-          <h3>Podcast 4</h3>
-        </div>
-        </div>
-        </div>
-   `;
-}
-libraryModule();
-
-home.addEventListener("click", homeModule);
-search.addEventListener("click", searchModule);
-library.addEventListener("click", libraryModule);
