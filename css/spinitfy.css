@@ -109,6 +109,7 @@ footer {
   background-color: rgba(41, 41, 51, 0.699);
   background-image: url(../img/posters/big-poster.png);
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  display: inline-block;
 }
 .folders-home-1 {
   cursor: pointer;
@@ -254,6 +255,53 @@ input[type="range"]:hover::-webkit-slider-thumb {
 }
 /* -------------------------------------------- GRID AREAS */
 /* -------------------------------------------- GRID AREAS */
+.main-div-body {
+  margin: 1rem 2rem;
+  height: 20em;
+  display: grid;
+  grid-template-columns: 0.05fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "top-row top-row top-row top-row top-row"
+    "row-1 row-1 row-1 row-1 row-1"
+    "row-2 row-2 row-2 row-2 row-2"
+    "row-3 row-3 row-3 row-3 row-3"
+    "row-4 row-4 row-4 row-4 row-4"
+    "row-5 row-5 row-5 row-5 row-5";
+}
+.top-row {
+  grid-area: top-row;
+  width: 100%;
+  height: 100%;
+}
+.top-row p,
+.row-1 p,
+.row-2 p,
+.row-3 p,
+.row-4 p,
+.row-5 p {
+  vertical-align: center;
+}
+.row-1 {
+  grid-area: row-1;
+  width: 100%;
+}
+.row-2 {
+  grid-area: row-2;
+  width: 100%;
+}
+.row-3 {
+  grid-area: row-3;
+  width: 100%;
+}
+.row-4 {
+  grid-area: row-4;
+  width: 100%;
+}
+.row-5 {
+  grid-area: row-5;
+  width: 100%;
+}
 header {
   grid-area: header;
 }
@@ -266,6 +314,7 @@ header {
 main {
   background-color: rgb(17, 17, 17);
   grid-area: main;
+  height: 80vh;
 }
 .player {
   background-color: rgb(17, 17, 17);
@@ -293,21 +342,77 @@ footer {
 .main-div-body {
   grid-area: main-div-body;
 }
-.col-0 {
-  grid-area: col-0;
-}
 .col-1 {
-  grid-area: col-1;
+  width: 1em;
 }
-.col-2 {
-  grid-area: col-2;
+.col-2,
+.col-3,
+.col-4,
+.col-5 {
+  height: 1em;
+  width: 25em;
+  margin: 1em 2em 1em 2em;
 }
-.col-3 {
-  grid-area: col-3;
+/* .index-1 {
+  grid-area: index-1;
 }
-.col-4 {
-  grid-area: col-4;
+.index-2 {
+  grid-area: index-2;
 }
+.index-3 {
+  grid-area: index-3;
+}
+.index-4 {
+  grid-area: index-4;
+}
+.index-5 {
+  grid-area: index-5;
+}
+.album-1 {
+  grid-area: album-1;
+}
+.album-2 {
+  grid-area: album-2;
+}
+.album-3 {
+  grid-area: album-3;
+}
+.album-4 {
+  grid-area: album-4;
+}
+.album-5 {
+  grid-area: album-5;
+}
+.date-added-1 {
+  grid-area: date-added-1;
+}
+.date-added-2 {
+  grid-area: date-added-2;
+}
+.date-added-3 {
+  grid-area: date-added-3;
+}
+.date-added-4 {
+  grid-area: date-added-4;
+}
+.date-added-5 {
+  grid-area: date-added-5;
+}
+.song-duration-1 {
+  grid-area: song-duration-1;
+}
+.song-duration-2 {
+  grid-area: song-duration-2;
+}
+.song-duration-3 {
+  grid-area: song-duration-3;
+}
+.song-duration-4 {
+  grid-area: song-duration-4;
+}
+.song-duration-5 {
+  grid-area: song-duration-5;
+} */
 .music-info {
   grid-area: music-info;
 }
@@ -330,7 +435,6 @@ footer {
   grid-area: music-details;
 }
 
-/* -------------------------------------------- MOBILE VERSION */
 /* -------------------------------------------- MOBILE VERSION */
 
 @media screen and (max-width: 480px) {
@@ -511,9 +615,8 @@ footer {
 @media screen and (max-width: 1024px) {
   body {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 0.5fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
-      "header input-bar top-div top-div top-div"
       "header main main main main"
       "header main main main main"
       "header main main main main"
@@ -549,10 +652,9 @@ footer {
 
 @media screen and (min-width: 1025px) {
   body {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 0.5fr 1fr 1fr 1fr 1fr 0.2fr;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
-      "header input-bar top-div top-div top-div"
       "header main main main main"
       "header main main main main"
       "header main main main main"
@@ -571,19 +673,6 @@ footer {
       "main-div-body";
   }
 
-  .main-div-body {
-    margin: 1rem 2rem;
-    display: grid;
-    grid-template-columns: 0.05fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas:
-      "col-0 col-1 col-2 col-3 col-4"
-      "col-0 col-1 col-2 col-3 col-4"
-      "col-0 col-1 col-2 col-3 col-4"
-      "col-0 col-1 col-2 col-3 col-4"
-      "col-0 col-1 col-2 col-3 col-4"
-      "col-0 col-1 col-2 col-3 col-4";
-  }
   h2 {
     margin: 1rem;
   }
@@ -627,6 +716,7 @@ footer {
   .player {
     display: grid;
     height: 15vh;
+    width: 100vw;
     border-top: 1px solid rgba(49, 49, 49, 0.432);
     grid-template-columns: 0.2fr 1.8fr;
     grid-template-rows: 1fr;
@@ -655,26 +745,26 @@ footer {
     margin: 1rem;
   }
   .big-poster-label {
-    display: inline-block;
     vertical-align: middle;
     width: 15rem;
-    margin-bottom: 7rem;
+    margin: 7em 0 0 2em;
   }
   .big-poster-label h2 {
     font-size: 35px;
     margin: 0.5rem 0rem;
   }
   .big-tittle-and-poster {
-    width: 30rem;
+    display: flex;
+    width: 100%;
     height: 14rem;
-  }
-  .top-row {
-    border-bottom: 1px solid rgba(199, 199, 199, 0.137);
-    padding-bottom: 0.5rem;
   }
   .main-div-body p {
     font-size: 14px;
     margin: 1.5rem 0rem 1.5rem 0rem;
+    display: inline-block;
+  }
+  .main-div-body {
+    height: 35em;
   }
   .folders-div {
     display: grid;
@@ -696,7 +786,8 @@ footer {
   }
   header {
     background-color: black;
-    width: 15vw;
+    width: 12vw;
+    height: 80vh;
   }
   .top-div {
     display: grid;
@@ -719,7 +810,7 @@ footer {
     width: 20rem;
   }
   main {
-    height: 70vh;
+    height: 80vh;
   }
   .main-div {
     height: 95%;

@@ -89,7 +89,7 @@ window.onpopstate = urlLocationHandler;
 window.route = urlRoute;
 urlLocationHandler();
 
-/////////////////////////////////////////////////////////////////////Media Player
+/////////////////////////////////////////////////////////////////////MEDIA PLAYER
 
 const songList = [
   {
@@ -260,21 +260,6 @@ function setUpdate() {
   }
 }
 
-// -------------------------------------------- MAIN MODULE
-// -------------------------------------------- MAIN MODULE
-const playlistDate = new Date(2023, 0, 17, 14, 50, 0);
-const now = new Date();
-const [month, day, hour, minute] = [
-  now.getMonth(),
-  now.getDate(),
-  now.getHours(),
-  now.getMinutes(),
-];
-
-let diff = now.getTime() - playlistDate.getTime();
-diff = Math.floor(diff / (1000 * 60 * 60 * 24));
-let addedSentence = `Added ${diff} days ago`;
-
 function volume() {
   if (currentSong.volume > 0) {
     soundSlider.value = 0;
@@ -288,6 +273,21 @@ function volume() {
     soundBtn.classList.toggle("mute");
   }
 }
+// -------------------------------------------- DATES
+const playlistDate = new Date(2023, 0, 17, 14, 50, 0);
+const now = new Date();
+const [month, day, hour, minute] = [
+  now.getMonth(),
+  now.getDate(),
+  now.getHours(),
+  now.getMinutes(),
+];
+
+let diff = now.getTime() - playlistDate.getTime();
+diff = Math.floor(diff / (1000 * 60 * 60 * 24));
+let addedSentence = `Added ${diff} days ago`;
+
+// -------------------------------------------- Song Duration
 
 function getDuration(songIndex) {
   currentSong.src = songList[songIndex].url;
