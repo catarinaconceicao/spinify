@@ -44,7 +44,7 @@ document.addEventListener("click", (e) => {
 const urlRoutes = {
   404: {
     template: "/templates/404.html",
-    title: "404 | " + urlPageTitle,
+    title: urlPageTitle + " | Welcome",
     description: "Page not found",
   },
   "/": {
@@ -273,6 +273,31 @@ function volume() {
     soundBtn.classList.toggle("mute");
   }
 }
+
+///////////////////////////////////////////////// HOME PAGE
+
+let name1 = document.querySelector(".name-1");
+let name2 = document.querySelector(".name-2");
+let name3 = document.querySelector(".name-3");
+let name4 = document.querySelector(".name-4");
+let name5 = document.querySelector(".name-5");
+
+const album1 = document.querySelector(".album-1");
+const album2 = document.querySelector(".album-2");
+const album3 = document.querySelector(".album-3");
+const album4 = document.querySelector(".album-4");
+const album5 = document.querySelector(".album-5");
+
+const dateAddedLabel = document.querySelectorAll(".date-added");
+
+const songDuration1 = document.querySelector(".song-duration-1");
+const songDuration2 = document.querySelector(".song-duration-2");
+const songDuration3 = document.querySelector(".song-duration-3");
+const songDuration4 = document.querySelector(".song-duration-4");
+const songDuration5 = document.querySelector(".song-duration-5");
+
+// -------------------------------------------- NAMES
+
 // -------------------------------------------- DATES
 const playlistDate = new Date(2023, 0, 17, 14, 50, 0);
 const now = new Date();

@@ -274,33 +274,46 @@ input[type="range"]:hover::-webkit-slider-thumb {
   width: 100%;
   height: 100%;
 }
-.top-row p,
-.row-1 p,
-.row-2 p,
-.row-3 p,
-.row-4 p,
-.row-5 p {
+.main-div-body p {
   vertical-align: center;
+  padding-left: 1em;
 }
 .row-1 {
   grid-area: row-1;
-  width: 100%;
+  width: 80%;
 }
 .row-2 {
   grid-area: row-2;
-  width: 100%;
+  width: 80%;
 }
 .row-3 {
   grid-area: row-3;
-  width: 100%;
+  width: 80%;
 }
 .row-4 {
   grid-area: row-4;
-  width: 100%;
+  width: 80%;
 }
 .row-5 {
   grid-area: row-5;
-  width: 100%;
+  width: 80%;
+}
+.row-1,
+.row-2,
+.row-3,
+.row-4,
+.row-5 {
+  border-radius: 5px;
+}
+.row-1:hover,
+.row-2:hover,
+.row-3:hover,
+.row-4:hover,
+.row-5:hover {
+  background-color: rgba(255, 255, 255, 0.158);
+  transition: background-color 0.5s;
+  color: rgb(137, 206, 34);
+  cursor: not-allowed;
 }
 header {
   grid-area: header;
@@ -342,16 +355,33 @@ footer {
 .main-div-body {
   grid-area: main-div-body;
 }
-.col-1 {
+.col-1,
+.index-1,
+.index-2,
+.index-3,
+.index-4,
+.index-5 {
   width: 1em;
+  margin-top: 0;
 }
 .col-2,
 .col-3,
 .col-4,
-.col-5 {
+.col-5,
+.name-1,
+.name-2,
+.name-3,
+.name-4,
+.name-5,
+.album-1,
+.album-2,
+.album-3,
+.album-4,
+.album-5,
+.date-added {
   height: 1em;
   width: 25em;
-  margin: 1em 2em 1em 2em;
+  margin: 0em 2em 1em 2em;
 }
 /* .index-1 {
   grid-area: index-1;
@@ -672,7 +702,10 @@ footer {
       "big-tittle-and-poster"
       "main-div-body";
   }
-
+  .dummy-warning {
+    margin: 1rem;
+    color: rgba(250, 173, 173, 0.603);
+  }
   h2 {
     margin: 1rem;
   }
@@ -764,12 +797,13 @@ footer {
     display: inline-block;
   }
   .main-div-body {
-    height: 35em;
+    height: 50%;
   }
   .folders-div {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
+    margin: 1rem;
   }
   .search h2 {
     width: 10rem;
@@ -780,9 +814,14 @@ footer {
     height: 8rem;
     margin: 1rem 0rem 0 0.2rem;
     padding: 0.5rem;
-    background-color: rgb(201, 35, 35);
+    background-color: rgba(201, 35, 35, 0.432);
     border-radius: 5px;
     color: white;
+  }
+  .folder:hover {
+    transition: background-color 0.5s;
+    background-color: rgb(201, 35, 35);
+    cursor: not-allowed;
   }
   header {
     background-color: black;
@@ -882,9 +921,16 @@ footer {
       rgba(65, 1, 15, 0.639) 96%
     );
   }
+  .home-div {
+    width: 95%;
+    height: 90%;
+  }
+  .home-div div:hover {
+    cursor: not-allowed;
+  }
   .home-div-folder-1 {
     margin: 1rem;
-    width: 85rem;
+    width: 95%;
     height: 12rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -907,9 +953,11 @@ footer {
     width: 10rem;
   }
   .home-div-folder-2 {
+    display: flex;
+    justify-content: flex-start;
     margin: 1rem;
-    width: 85rem;
-    height: 12rem;
+    width: 95%;
+    height: 50%;
   }
   .folders-home-2 {
     background-color: rgba(255, 255, 255, 0.089);
@@ -918,11 +966,15 @@ footer {
     height: 15rem;
     margin: 0 1.5rem 1.5rem 0;
   }
+  .folders-home-1 .div {
+    background-color: rgba(43, 226, 217, 0.452);
+  }
   .folders-home-2 div {
     border-radius: 5px;
     width: 10.5rem;
     height: 10.5rem;
     margin: 1rem 1.2rem;
+    background-color: rgba(137, 43, 226, 0.452);
   }
   .folders-home-2 h3 {
     width: 6rem;
