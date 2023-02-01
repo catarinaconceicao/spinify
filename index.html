@@ -55,25 +55,31 @@
 
         <div class="music-further-options">
           <p class="current-time">00:00</p>
-          <input
-            type="range"
-            class="music-slider slider"
-            min="1"
-            max="100"
-            value="0"
-          />
+          <div class="music-slider-container">
+            <input
+              type="range"
+              class="music-slider slider"
+              min="1"
+              max="100"
+              value="0"
+            />
+            <div class="progress-bar-music-slider"></div>
+          </div>
           <p class="time-left">00:00</p>
         </div>
 
         <div class="sound-container">
           <button class="sound-btn btn"></button>
-          <input
-            type="range"
-            class="sound-slider"
-            min="1"
-            max="100"
-            value="75"
-          />
+          <div class="sound-slider-container">
+            <input
+              type="range"
+              class="sound-slider"
+              min="1"
+              max="100"
+              value="50"
+            />
+            <div class="progress-bar-sound-slider"></div>
+          </div>
         </div>
       </div>
     </div>

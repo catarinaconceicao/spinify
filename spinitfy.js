@@ -220,6 +220,10 @@ function previousSong() {
   loadSong(index);
   playSong();
 }
+////////////////////////////////////////////////////// SLIDERS
+const musicProgressBar = document.querySelector(".progress-bar-music-slider");
+const soundProgressBar = document.querySelector(".progress-bar-sound-slider");
+
 function slide() {
   let slideTo = currentSong.duration * (musicSlider.value / 100);
   currentSong.currentTime = slideTo;
@@ -229,9 +233,17 @@ function setVolume() {
 }
 function setUpdate() {
   let sliderPosition = 0;
+  musicProgressBar.style.width = 0;
   if (!isNaN(currentSong.duration)) {
     sliderPosition = currentSong.currentTime * (100 / currentSong.duration);
     musicSlider.value = sliderPosition;
+
+    currentSong.volume = soundSlider.value / 100;
+    musicProgressBar.style.width = `${sliderPosition}%`;
+    soundProgressBar.style.width = `${currentSong.volume * 100}%`;
+    console.log(soundSlider.value);
+    console.log(currentSong.volume * 100);
+    console.log(soundProgressBar.style.width);
 
     let currentMinutes = Math.floor(currentSong.currentTime / 60);
     let currentSeconds = Math.floor(
@@ -264,57 +276,14 @@ function volume() {
   if (currentSong.volume > 0) {
     soundSlider.value = 0;
     currentSong.volume = 0;
+    soundProgressBar.style.width = `${soundSlider.value}%`;
 
     soundBtn.classList.toggle("mute");
   } else {
-    soundSlider.value = 75;
-    currentSong.volume = 0.75;
-
+    soundSlider.value = 100;
+    currentSong.volume = 1;
+    soundProgressBar.style.width = `${soundSlider.value}%`;
+    console.log(musicProgressBar.style.width);
     soundBtn.classList.toggle("mute");
   }
-}
-
-///////////////////////////////////////////////// HOME PAGE
-
-let name1 = document.querySelector(".name-1");
-let name2 = document.querySelector(".name-2");
-let name3 = document.querySelector(".name-3");
-let name4 = document.querySelector(".name-4");
-let name5 = document.querySelector(".name-5");
-
-const album1 = document.querySelector(".album-1");
-const album2 = document.querySelector(".album-2");
-const album3 = document.querySelector(".album-3");
-const album4 = document.querySelector(".album-4");
-const album5 = document.querySelector(".album-5");
-
-const dateAddedLabel = document.querySelectorAll(".date-added");
-
-const songDuration1 = document.querySelector(".song-duration-1");
-const songDuration2 = document.querySelector(".song-duration-2");
-const songDuration3 = document.querySelector(".song-duration-3");
-const songDuration4 = document.querySelector(".song-duration-4");
-const songDuration5 = document.querySelector(".song-duration-5");
-
-// -------------------------------------------- NAMES
-
-// -------------------------------------------- DATES
-const playlistDate = new Date(2023, 0, 17, 14, 50, 0);
-const now = new Date();
-const [month, day, hour, minute] = [
-  now.getMonth(),
-  now.getDate(),
-  now.getHours(),
-  now.getMinutes(),
-];
-
-let diff = now.getTime() - playlistDate.getTime();
-diff = Math.floor(diff / (1000 * 60 * 60 * 24));
-let addedSentence = `Added ${diff} days ago`;
-
-// -------------------------------------------- Song Duration
-
-function getDuration(songIndex) {
-  currentSong.src = songList[songIndex].url;
-  return;
 }

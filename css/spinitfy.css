@@ -1,39 +1,50 @@
+:root {
+  --main-green: #47a805;
+}
+
 /* ---------------------- GENERAL STYLING */
 body {
   margin: 0;
   padding: 0;
-  height: 99vh;
-  width: 99vw;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: hidden;
   color: rgba(255, 255, 255, 0.7);
   display: grid;
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   accent-color: white;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  background-color: black;
 }
-
+.dummy-warning {
+  margin: 1em;
+  color: rgba(250, 173, 173, 0.603);
+}
 h1 {
   text-align: center;
+  margin: 3em 1em 1.5em;
+}
+h2 {
+  margin: 1em;
+}
+nav {
+  margin-inline: auto;
+  width: 6em;
+}
+nav a {
+  margin-top: 1em;
 }
 div,
 p {
   font-weight: 300;
-  font-size: 12px;
+  font-size: 15px;
 }
 a {
   transition: color 0.3s;
   display: inline-block;
   color: rgba(255, 255, 255, 0.7);
-}
-.folders-home-1,
-.folders-home-2 {
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.user-p {
-  display: inline;
-  width: 10rem;
+  text-decoration: none;
 }
 a:hover,
 h1:hover,
@@ -42,59 +53,25 @@ h1:hover,
   cursor: pointer;
   color: white;
 }
-.folders-home-1:hover,
-.folders-home-2:hover {
-  background-color: rgba(255, 255, 255, 0.274);
-}
-.input-bar {
-  display: inline;
-  width: 10rem;
-}
-.top-div input {
-  display: inline;
-  width: 10rem;
-  border-radius: 50px;
-  background-color: rgba(255, 255, 255, 0.897);
-  border-color: rgba(240, 248, 255, 0);
-  height: 1.5rem;
-}
-.music-info {
-  display: grid;
-  grid-template-columns: 0.7fr 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "poster music-details";
-  height: 15vh;
-  width: 15vw;
-}
-.music-details {
-  width: 10rem;
-  height: 4rem;
-  text-align: center;
-  padding: 0.5rem 0.25rem;
-}
-.music-details p {
-  margin-top: 0.3rem;
-  font-size: 14px;
-  color: white;
-}
-
-.music-further-options p {
-  font-size: 10px;
-  font-weight: bold;
-}
-.music-name {
-  font-weight: 600;
-}
-footer p {
-  font-size: 10px;
-}
-.powered-by-link {
-  font-size: 10px;
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
 }
 .poster {
   font-size: 12px;
   text-align: center;
   background-size: cover;
+}
+.big-poster {
+  background-color: rgba(41, 41, 51, 0.699);
+  background-image: url(../img/posters/big-poster.png);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  display: inline-block;
+}
+.music-slider-container {
+  display: inline-block;
 }
 footer {
   height: 6vh;
@@ -105,11 +82,44 @@ footer {
     rgba(64, 190, 255, 1) 100%
   );
 }
+footer p {
+  font-size: 10px;
+}
+/*////////////////////////////////////////////////////////////////
+/* -------------------------------------------- Home */
+
 .big-poster {
-  background-color: rgba(41, 41, 51, 0.699);
-  background-image: url(../img/posters/big-poster.png);
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  width: 12rem;
+  height: 12rem;
+  margin: 1rem;
+}
+.big-poster-label {
+  vertical-align: middle;
+  width: 15rem;
+  margin: 5em 0 1em 2em;
+}
+.big-poster-label h2 {
+  font-size: 35px;
+  margin: 0.5rem 0rem;
+}
+.big-tittle-and-poster {
+  display: flex;
+  width: 100%;
+  height: 14rem;
+}
+.top-row {
+  grid-area: top-row;
+  width: 100%;
+  height: 4em;
+}
+.main-div-body p {
   display: inline-block;
+  vertical-align: center;
+  padding-left: 3em;
+}
+.big-tittle-and-poster {
+  display: flex;
+  width: 100%;
 }
 .folders-home-1 {
   cursor: pointer;
@@ -120,8 +130,88 @@ footer {
   background-color: rgba(255, 255, 255, 0.089);
   border-radius: 5px;
 }
-/*  */
-/* -------------------------------------------- BUTTONS STYLING */
+.folders-home-1:hover,
+.folders-home-2:hover {
+  background-color: rgba(255, 255, 255, 0.274);
+}
+.user-p {
+  display: inline;
+  width: 10rem;
+}
+.folders-home-1,
+.folders-home-2 {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.col-1,
+.index-1,
+.index-2,
+.index-3,
+.index-4,
+.index-5 {
+  width: 1em;
+  margin-top: 0;
+}
+.col-2,
+.col-3,
+.col-4,
+.name-1,
+.name-2,
+.name-3,
+.name-4,
+.name-5,
+.album-1,
+.album-2,
+.album-3,
+.album-4,
+.album-5,
+.date-added {
+  height: 1em;
+  width: 10em;
+}
+.col-5,
+.song-duration-5 {
+  height: 1em;
+  width: 7em;
+}
+
+/*////////////////////////////////////////////////////////////////
+/* -------------------------------------------- Library */
+.folders-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  margin: 1rem;
+}
+.folder {
+  background-color: rgba(201, 35, 35, 0.432);
+  border-radius: 5px;
+  color: white;
+}
+.folder:hover {
+  transition: background-color 0.5s;
+  background-color: rgb(201, 35, 35);
+  cursor: not-allowed;
+}
+.row-1,
+.row-2,
+.row-3,
+.row-4,
+.row-5 {
+  width: 100%;
+  border-radius: 5px;
+}
+.row-1:hover,
+.row-2:hover,
+.row-3:hover,
+.row-4:hover,
+.row-5:hover {
+  background-color: rgba(255, 255, 255, 0.158);
+  transition: background-color 0.5s;
+  color: var(--main-green);
+  cursor: not-allowed;
+}
+/*////////////////////////////////////////////////////////////////
 /* -------------------------------------------- BUTTONS STYLING */
 .btn {
   border-radius: 50%;
@@ -220,10 +310,8 @@ footer {
 .btn:hover {
   opacity: 1;
 }
-
-/* -------------------------------------------- Sliders STYLING */
-/* -------------------------------------------- Sliders STYLING */
-
+/*////////////////////////////////////////////////////////////////
+/* -------------------------------------------- SLIDERS ---- */
 .music-further-options input,
 .sound-container input {
   vertical-align: middle;
@@ -232,6 +320,7 @@ footer {
   border-radius: 5px;
   height: 5px;
   background-color: rgba(255, 255, 255, 0.301);
+  z-index: 1;
 }
 .slider {
   width: 25rem;
@@ -253,95 +342,73 @@ input[type="range"]:hover::-webkit-slider-thumb {
   background: #fff;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
 }
-/* -------------------------------------------- GRID AREAS */
-/* -------------------------------------------- GRID AREAS */
-.main-div-body {
-  margin: 1rem 2rem;
-  height: 20em;
-  display: grid;
-  grid-template-columns: 0.05fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas:
-    "top-row top-row top-row top-row top-row"
-    "row-1 row-1 row-1 row-1 row-1"
-    "row-2 row-2 row-2 row-2 row-2"
-    "row-3 row-3 row-3 row-3 row-3"
-    "row-4 row-4 row-4 row-4 row-4"
-    "row-5 row-5 row-5 row-5 row-5";
+.progress-bar-music-slider {
+  top: -9px;
+  left: 1px;
+  width: 0;
+  position: relative;
+  border-radius: 5px;
+  height: 5px;
+  background-color: #ffffff;
 }
-.top-row {
-  grid-area: top-row;
+
+.sound-slider-container {
+  display: inline-block;
+}
+.progress-bar-sound-slider {
+  top: -9px;
+  left: 1px;
+  position: relative;
+  border-radius: 5px;
+  height: 5px;
   width: 100%;
-  height: 100%;
+  background-color: #ffffff;
 }
-.main-div-body p {
-  vertical-align: center;
-  padding-left: 1em;
+/*////////////////////////////////////////////////////////////////
+/* -------------------------------------------- GRID AREAS ---- */
+header {
+  grid-area: header;
+  height: 80vh;
+  width: 18vw;
+  background-color: black;
+}
+main {
+  grid-area: main;
+  background-color: rgb(17, 17, 17);
+  height: 80vh;
+  width: 82vw;
+}
+.player {
+  grid-area: player;
+  background-color: rgb(17, 17, 17);
+  height: 15vh;
+  width: 100vw;
+}
+footer {
+  grid-area: footer;
+  height: 5vh;
+  width: 100vw;
 }
 .row-1 {
   grid-area: row-1;
-  width: 80%;
 }
 .row-2 {
   grid-area: row-2;
-  width: 80%;
 }
 .row-3 {
   grid-area: row-3;
-  width: 80%;
 }
 .row-4 {
   grid-area: row-4;
-  width: 80%;
 }
 .row-5 {
   grid-area: row-5;
-  width: 80%;
-}
-.row-1,
-.row-2,
-.row-3,
-.row-4,
-.row-5 {
-  border-radius: 5px;
-}
-.row-1:hover,
-.row-2:hover,
-.row-3:hover,
-.row-4:hover,
-.row-5:hover {
-  background-color: rgba(255, 255, 255, 0.158);
-  transition: background-color 0.5s;
-  color: rgb(137, 206, 34);
-  cursor: not-allowed;
-}
-header {
-  grid-area: header;
-}
-.input-bar {
-  grid-area: input-bar;
 }
 .top-div {
   grid-area: top-div;
 }
-main {
-  background-color: rgb(17, 17, 17);
-  grid-area: main;
-  height: 80vh;
-}
-.player {
-  background-color: rgb(17, 17, 17);
-
-  grid-area: player;
-}
-footer {
-  grid-area: footer;
-}
 .playing-options-btns {
   grid-area: playing-options-btns;
-}
-.sound-container {
-  grid-area: sound-container;
 }
 .music-further-options {
   grid-area: music-further-options;
@@ -352,105 +419,20 @@ footer {
 .bit-tittle-and-poster {
   grid-area: bit-tittle-and-poster;
 }
+.poster {
+  grid-area: poster;
+}
+.playing-options-buttons {
+  grid-area: playing-options-buttons;
+}
 .main-div-body {
   grid-area: main-div-body;
 }
-.col-1,
-.index-1,
-.index-2,
-.index-3,
-.index-4,
-.index-5 {
-  width: 1em;
-  margin-top: 0;
-}
-.col-2,
-.col-3,
-.col-4,
-.col-5,
-.name-1,
-.name-2,
-.name-3,
-.name-4,
-.name-5,
-.album-1,
-.album-2,
-.album-3,
-.album-4,
-.album-5,
-.date-added {
-  height: 1em;
-  width: 25em;
-  margin: 0em 2em 1em 2em;
-}
-/* .index-1 {
-  grid-area: index-1;
-}
-.index-2 {
-  grid-area: index-2;
-}
-.index-3 {
-  grid-area: index-3;
-}
-.index-4 {
-  grid-area: index-4;
-}
-.index-5 {
-  grid-area: index-5;
-}
-.album-1 {
-  grid-area: album-1;
-}
-.album-2 {
-  grid-area: album-2;
-}
-.album-3 {
-  grid-area: album-3;
-}
-.album-4 {
-  grid-area: album-4;
-}
-.album-5 {
-  grid-area: album-5;
-}
-.date-added-1 {
-  grid-area: date-added-1;
-}
-.date-added-2 {
-  grid-area: date-added-2;
-}
-.date-added-3 {
-  grid-area: date-added-3;
-}
-.date-added-4 {
-  grid-area: date-added-4;
-}
-.date-added-5 {
-  grid-area: date-added-5;
-}
-.song-duration-1 {
-  grid-area: song-duration-1;
-}
-.song-duration-2 {
-  grid-area: song-duration-2;
-}
-.song-duration-3 {
-  grid-area: song-duration-3;
-}
-.song-duration-4 {
-  grid-area: song-duration-4;
-}
-.song-duration-5 {
-  grid-area: song-duration-5;
-} */
 .music-info {
   grid-area: music-info;
 }
 .playing-options {
   grid-area: playing-options;
-}
-.music-info {
-  grid-area: music-info;
 }
 .slide-container {
   grid-area: slide-container;
@@ -464,41 +446,34 @@ footer {
 .music-details {
   grid-area: music-details;
 }
-
+.music-slider-container {
+  display: inline-block;
+}
 /* -------------------------------------------- MOBILE VERSION */
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   body {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas:
-      "player "
-      "player "
-      "player player player";
+      "player"
+      "player"
+      "player";
     grid-gap: 0;
   }
-  h1,
-  .top-div,
-  footer,
-  span,
-  .sound-container {
+  header,
+  main,
+  .main-div,
+  .main-div-body,
+  .sound-container,
+  footer {
     display: none;
   }
-  nav {
-    margin-top: 2rem;
-    height: 5rem;
-  }
-  header nav a {
-    height: 1rem;
-    width: 1rem;
-    margin: 0.75rem 4.4rem 0.75rem;
-    text-decoration: none;
-  }
-
   .player {
     height: 100vh;
+    width: 100vw;
     background: rgb(0, 0, 0);
     background: linear-gradient(
       0deg,
@@ -506,478 +481,486 @@ footer {
       rgba(0, 0, 0, 1) 26%,
       rgba(0, 228, 255, 1) 100%
     );
-  }
-  .poster {
-    width: 25rem;
-    height: 25rem;
-    display: block;
-    margin: 5rem 2.4rem 2rem;
-  }
-  .music-info {
-    display: block;
-    width: 100%;
-    height: 32rem;
-  }
-  .music-details {
-    display: block;
-    height: 3.2rem;
-    width: 10rem;
-    margin: 0 2.4rem;
-    text-align: start;
-  }
-  .playing-options {
-    display: block;
-    margin: 3rem 0;
-  }
-  .playing-options-btns {
-    width: 12rem;
-    margin: 0 9rem;
-  }
-  .music-further-options {
-    width: 25rem;
-    margin: 1rem 2.7rem;
-  }
-  .music-further-options p {
-    display: inline-block;
-  }
-  .music-slider {
-    width: 20rem;
-  }
-}
-
-/* -------------------------------------------- TABLET VERSION */
-/* -------------------------------------------- TABLET VERSION */
-
-@media screen and (max-width: 768px) {
-  body {
-    width: 100%;
-    height: 100%;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas:
-      "player "
-      "player "
-      "player player player";
-    grid-gap: 0;
-  }
-  h1,
-  .top-div,
-  footer,
-  span,
-  .sound-container {
-    display: none;
-  }
-  nav {
-    margin-top: 2rem;
-    height: 5rem;
-  }
-  nav a {
-    height: 1rem;
-    width: 1rem;
-    margin: 0.75rem 4.4rem 0.75rem;
-  }
-  a {
-    text-decoration: none;
-  }
-  a:link {
-    text-decoration: none;
-  }
-  a:visited {
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: none;
-  }
-  a:active {
-    text-decoration: none;
-  }
-  .player {
-    height: 100vh;
-    background: rgb(0, 0, 0);
-    background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 1) 0%,
-      rgba(0, 0, 0, 1) 26%,
-      rgba(0, 228, 255, 1) 100%
-    );
-  }
-  .poster {
-    width: 25rem;
-    height: 25rem;
-    display: block;
-    margin: 5rem 2.4rem 2rem;
-  }
-  .music-info {
-    display: block;
-    width: 100%;
-    height: 32rem;
-  }
-  .music-details {
-    display: block;
-    height: 3.2rem;
-    width: 10rem;
-    margin: 0 2.4rem;
-    text-align: start;
-  }
-  .playing-options {
-    display: block;
-    margin: 3rem 0;
-  }
-  .playing-options-btns {
-    width: 12rem;
-    margin: 0 9rem;
-  }
-  .music-further-options {
-    width: 25rem;
-    margin: 1rem 2.7rem;
-  }
-  .music-further-options p {
-    display: inline-block;
-  }
-  .music-slider {
-    width: 20rem;
-  }
-}
-
-/* -------------------------------------------- LAPTOPS VERSION */
-/* -------------------------------------------- LAPTOPS VERSION */
-
-@media screen and (max-width: 1024px) {
-  body {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas:
-      "header main main main main"
-      "header main main main main"
-      "header main main main main"
-      "player player player player player"
-      "footer footer footer footer footer";
-  }
-  .library {
-    background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.5) 50%,
-      rgba(248, 93, 255, 1) 100%
-    );
-  }
-  a {
-    text-decoration: none;
-  }
-  a:link {
-    text-decoration: none;
-  }
-  a:visited {
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: none;
-  }
-  a:active {
-    text-decoration: none;
-  }
-}
-/* -------------------------------------------- DESKTOPS VERSION */
-/* -------------------------------------------- DESKTOPS VERSION */
-
-@media screen and (min-width: 1025px) {
-  body {
-    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas:
-      "header main main main main"
-      "header main main main main"
-      "header main main main main"
-      "player player player player player"
-      "footer footer footer footer footer";
-  }
-  .library {
     display: grid;
-    width: 102rem;
-    height: 41rem;
-    margin: 0;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.8fr 1.2fr;
+    grid-template-rows: 2fr 0.5fr;
+    grid-template-areas:
+      "music-info"
+      "playing-options";
+  }
+  .poster {
+    width: 500px;
+    height: 500px;
+  }
+  .music-info {
+    margin-top: 10%;
+    margin-inline: auto;
+  }
+  .music-details {
+    margin-top: 5%;
+  }
+  .playing-options {
+    width: 80vw;
+    margin-inline: auto;
+    margin-top: 5%;
+  }
+  .playing-options-btns {
+    margin-inline: auto;
+  }
+  .music-further-options p {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .music-slider-container {
+    vertical-align: middle;
+    width: 60vw;
+  }
+  .music-slider {
+    width: 100%;
+  }
+}
+/* -------------------------------------------- TABLET VERSION */
+/* -------------------------------------------- TABLET VERSION */
+
+@media screen and (min-width: 601px) and (max-width: 768px) {
+  body {
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      "player"
+      "player"
+      "player";
+    grid-gap: 0;
+  }
+  header,
+  main,
+  .main-div,
+  .main-div-body,
+  .sound-container,
+  footer {
+    display: none;
+  }
+  .player {
+    height: 100vh;
+    width: 100vw;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 26%,
+      rgba(0, 228, 255, 1) 100%
+    );
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 0.5fr;
+    grid-template-areas:
+      "music-info"
+      "playing-options";
+  }
+  .poster {
+    width: 600px;
+    height: 600px;
+  }
+  .music-info {
+    margin-top: 10%;
+    margin-inline: auto;
+  }
+  .music-details {
+    margin-top: 5%;
+  }
+  .playing-options {
+    width: 80vw;
+    margin-inline: auto;
+    margin-top: 5%;
+  }
+  .playing-options-btns {
+    margin-inline: auto;
+  }
+  .music-further-options p {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .music-slider-container {
+    vertical-align: middle;
+    width: 60vw;
+  }
+  .music-slider {
+    width: 100%;
+  }
+}
+/* -------------------------------------------- LAPTOPS VERSION */
+/* -------------------------------------------- LAPTOPS VERSION */
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  body {
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 0.8fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1.4fr 1.4fr 1.4fr 0.8fr 0.1fr;
+    grid-template-areas:
+      "header main main main main"
+      "header main main main main"
+      "header main main main main"
+      "player player player player player"
+      "footer footer footer footer footer";
+  }
+  header {
+    width: 18vw;
+    height: 80vh;
+  }
+  main,
+  .main-div {
+    width: 82vw;
+    height: 80vh;
+  }
+  .main-div {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-template-areas:
       "big-tittle-and-poster"
       "main-div-body";
   }
-  .dummy-warning {
-    margin: 1rem;
-    color: rgba(250, 173, 173, 0.603);
+  .poster {
+    width: 5rem;
+    height: 5rem;
+    margin: 1rem 1rem;
   }
-  h2 {
-    margin: 1rem;
+  .player {
+    width: 100vw;
+    height: 15vh;
+    display: grid;
+    border-top: 1px solid rgba(49, 49, 49, 0.432);
+    grid-template-columns: 0.2fr 1.8fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "music-info playing-options";
   }
-  nav a {
-    width: 8rem;
-    margin: 0 4rem 0 2rem;
-  }
-  a {
-    text-decoration: none;
-  }
-  a:link {
-    text-decoration: none;
-  }
-  a:visited {
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: none;
-  }
-  a:active {
-    text-decoration: none;
-  }
-  .music-further-options {
-    display: block;
-    width: 30rem;
-    margin: 0 14rem 0.5rem 28rem;
-  }
-  .music-further-options p {
-    margin: 0;
-    display: inline;
+  .music-info {
+    height: 15vh;
+    width: 18vw;
+
+    display: grid;
+    grid-template-columns: 0.7fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "poster music-details";
   }
   .playing-options {
+    height: 15vh;
+    width: 82vw;
     display: grid;
-    width: 85vw;
     grid-template-columns: 1.5fr 0.5fr;
-    grid-template-rows: 1.1fr 0.8fr;
+    grid-template-rows: 1fr 1fr;
     grid-template-areas:
       "playing-options-btns sound-container"
       "music-further-options sound-container";
   }
-  .player {
-    display: grid;
-    height: 15vh;
-    width: 100vw;
-    border-top: 1px solid rgba(49, 49, 49, 0.432);
-    grid-template-columns: 0.2fr 1.8fr;
-    grid-template-rows: 1fr;
-    grid-template-areas:
-      "music-info playing-options"
-      "music-info slide-container";
+  .music-details {
+    color: white;
+    text-align: center;
   }
-  footer {
-    display: grid;
-    grid-template-areas: "preview sign-up-for-free-btn";
-    font-weight: lighter;
+  .music-further-options p {
+    display: inline-block;
+  }
+  .playing-options-btns,
+  .music-further-options {
+    margin-inline: auto;
+  }
+  .playing-options-btns {
+    width: 16em;
+    margin-top: 1em;
+  }
+  .sound-slider-container {
+    margin-top: 3em;
+    width: 9em;
+  }
+  .music-name {
+    font-weight: 600;
   }
   .sound-container {
-    margin: 2.5rem 6rem 2.5rem 13rem;
-    width: 14rem;
-    padding: 0.5rem 0 0.5rem;
+    padding: 0;
+  }
+  .sound-slider {
+    width: 9em;
+  }
+  footer {
+    height: 5vh;
+    width: 100vw;
+    font-weight: lighter;
+  }
+
+  /* ----------------------HOME */
+
+  .main-div-body {
+    margin: 1rem 2rem;
+    display: grid;
+    grid-template-columns: 0.05fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "top-row top-row top-row top-row top-row"
+      "row-1 row-1 row-1 row-1 row-1"
+      "row-2 row-2 row-2 row-2 row-2"
+      "row-3 row-3 row-3 row-3 row-3"
+      "row-4 row-4 row-4 row-4 row-4"
+      "row-5 row-5 row-5 row-5 row-5";
+  }
+}
+
+/* -------------------------------------------- DESKTOP VERSION */
+/* -------------------------------------------- DESKTOP VERSION */
+
+@media screen and (min-width: 993px) and (max-width: 1199px) {
+  body {
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 0.8fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1.4fr 1.4fr 1.4fr 0.8fr 0.1fr;
+    grid-template-areas:
+      "header main main main main"
+      "header main main main main"
+      "header main main main main"
+      "player player player player player"
+      "footer footer footer footer footer";
+  }
+  header {
+    width: 18vw;
+    height: 80vh;
+  }
+  main,
+  .main-div {
+    width: 82vw;
+    height: 80vh;
+  }
+  .main-div {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "big-tittle-and-poster"
+      "main-div-body";
   }
   .poster {
     width: 5rem;
     height: 5rem;
-    margin: 1.7rem 1rem;
+    margin: 1rem 1rem;
   }
-  .big-poster {
-    width: 12rem;
-    height: 12rem;
-    margin: 1rem;
-  }
-  .big-poster-label {
-    vertical-align: middle;
-    width: 15rem;
-    margin: 7em 0 0 2em;
-  }
-  .big-poster-label h2 {
-    font-size: 35px;
-    margin: 0.5rem 0rem;
-  }
-  .big-tittle-and-poster {
-    display: flex;
-    width: 100%;
-    height: 14rem;
-  }
-  .main-div-body p {
-    font-size: 14px;
-    margin: 1.5rem 0rem 1.5rem 0rem;
-    display: inline-block;
-  }
-  .main-div-body {
-    height: 50%;
-  }
-  .folders-div {
+  .player {
+    width: 100vw;
+    height: 15vh;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    margin: 1rem;
-  }
-  .search h2 {
-    width: 10rem;
-    height: 3rem;
-  }
-  .folder {
-    width: 8rem;
-    height: 8rem;
-    margin: 1rem 0rem 0 0.2rem;
-    padding: 0.5rem;
-    background-color: rgba(201, 35, 35, 0.432);
-    border-radius: 5px;
-    color: white;
-  }
-  .folder:hover {
-    transition: background-color 0.5s;
-    background-color: rgb(201, 35, 35);
-    cursor: not-allowed;
-  }
-  header {
-    background-color: black;
-    width: 12vw;
-    height: 80vh;
-  }
-  .top-div {
-    display: grid;
-    grid-template-columns: 0.3fr 0.8fr;
+    border-top: 1px solid rgba(49, 49, 49, 0.432);
+    grid-template-columns: 0.2fr 1.8fr;
     grid-template-rows: 1fr;
-    grid-template-areas: "input-bar top-div-details";
-    background-color: rgb(8, 8, 8);
-    width: 85vw;
-    height: 9vh;
+    grid-template-areas: "music-info playing-options";
   }
-  .input-bar {
-    height: 2rem;
-    margin: 1.2rem 10rem 1.2rem 4rem;
-  }
-  .input-bar input {
-    height: 2rem;
-  }
-  .top-div-details {
-    margin: 1.2rem 5rem 1.2rem 50rem;
-    width: 20rem;
-  }
-  main {
-    height: 80vh;
-  }
-  .main-div {
-    height: 95%;
-    width: 98%;
-    padding: 1rem;
-  }
-  nav {
-    margin: 0.5rem 2rem;
+  .music-info {
+    height: 15vh;
+    width: 18vw;
+
+    display: grid;
+    grid-template-columns: 0.7fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "poster music-details";
   }
   .playing-options {
     height: 15vh;
-  }
-  .preview {
-    font-size: 0.9rem;
-    margin-bottom: 0rem;
-    width: 80vw;
-    height: 5vh;
-    margin: 0rem;
-    padding: 0rem;
-  }
-  .preview p {
-    display: inline;
-    margin: 0rem;
-    padding: 0rem;
-  }
-  nav a {
-    padding: 0.5rem;
-  }
-
-  .sign-up-for-free-btn {
-    grid-area: sign-up-for-free-btn;
-    width: 10rem;
-    height: 2rem;
-    margin: 0.5rem 3rem 0.5rem;
-    font-weight: bold;
-  }
-  .preview-para-1 {
-    padding: 0rem 0rem 0rem 0.5rem;
-  }
-  .preview-para-2 {
-    padding: 0.5rem 0rem 0rem 0.5rem;
-  }
-  .music-info {
-    width: 15vw;
+    width: 82vw;
+    display: grid;
+    grid-template-columns: 1.5fr 0.5fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "playing-options-btns sound-container"
+      "music-further-options sound-container";
   }
   .music-details {
-    margin: 2.5rem 0 2rem 0;
+    color: white;
+    text-align: center;
   }
-  .playing-options-btns {
-    width: 11.9rem;
-    margin: 1rem 23rem 0 37rem;
-    padding-top: 0.5rem;
-    vertical-align: middle;
-  }
-  .library {
-    background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.5) 50%,
-      rgba(248, 93, 255, 1) 100%
-    );
-  }
-  .home {
-    background: rgb(0, 0, 0);
-    background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 1) 0%,
-      rgba(0, 0, 0, 0.8855917366946778) 64%,
-      rgba(65, 1, 15, 0.639) 96%
-    );
-  }
-  .home-div {
-    width: 95%;
-    height: 90%;
-  }
-  .home-div div:hover {
-    cursor: not-allowed;
-  }
-  .home-div-folder-1 {
-    margin: 1rem;
-    width: 95%;
-    height: 12rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-  }
-  .folders-home-1 {
-    width: 30rem;
-    height: 5rem;
-    margin: 0 1.5rem 1.5rem 0;
-  }
-  .folders-home-1 .div {
-    border-radius: 5px 0 0 5px;
-    width: 5rem;
-    height: 5rem;
+  .music-further-options p {
     display: inline-block;
   }
-  .playlist-name {
-    display: inline;
-    margin: 2rem 17.5rem 0 0.5rem;
-    width: 10rem;
+  .playing-options-btns,
+  .music-further-options {
+    margin-inline: auto;
   }
-  .home-div-folder-2 {
-    display: flex;
-    justify-content: flex-start;
-    margin: 1rem;
+  .playing-options-btns {
+    width: 16em;
+    margin-top: 1em;
+  }
+  .sound-slider-container {
+    margin-top: 3em;
+    width: 9em;
+  }
+  .music-name {
+    font-weight: 600;
+  }
+  .sound-container {
+    padding: 0;
+  }
+  .sound-slider {
+    width: 9em;
+  }
+  footer {
+    height: 5vh;
+    width: 100vw;
+    font-weight: lighter;
+  }
+
+  /* ----------------------HOME */
+
+  .main-div-body {
+    margin: 1rem 2rem;
+    display: grid;
+    grid-template-columns: 0.05fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "top-row top-row top-row top-row top-row"
+      "row-1 row-1 row-1 row-1 row-1"
+      "row-2 row-2 row-2 row-2 row-2"
+      "row-3 row-3 row-3 row-3 row-3"
+      "row-4 row-4 row-4 row-4 row-4"
+      "row-5 row-5 row-5 row-5 row-5";
+  }
+}
+
+/* --------------------------------------- Ultra Wide VERSION */
+/* --------------------------------------- Ultra Wide VERSION */
+
+@media screen and (min-width: 1200px) {
+  body {
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 0.8fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1.4fr 1.4fr 1.4fr 0.8fr 0.1fr;
+    grid-template-areas:
+      "header main main main main"
+      "header main main main main"
+      "header main main main main"
+      "player player player player player"
+      "footer footer footer footer footer";
+    font-size: medium;
+  }
+  header {
+    width: 15vw;
+    height: 80vh;
+  }
+  main,
+  .main-div {
+    width: 85vw;
+    height: 80vh;
+  }
+  .main-div {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40% 60%;
+    grid-template-areas:
+      "big-tittle-and-poster"
+      "main-div-body    ";
+  }
+  .poster {
+    width: 100px;
+    height: 100px;
+    margin-inline: auto;
+    margin: 1.5em 1.5em;
+  }
+  .big-poster-label {
+    width: 20em;
+  }
+  .playing-options-btns {
+    width: 13em;
+    margin-inline: auto;
+    margin-top: 1em;
+  }
+
+  .player {
+    width: 100vw;
+    height: 15vh;
+    display: grid;
+    border-top: 1px solid rgba(49, 49, 49, 0.432);
+    grid-template-columns: 0.2fr 1.8fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "music-info playing-options";
+  }
+  .music-info {
+    height: 15vh;
+    width: 18vw;
+
+    display: grid;
+    grid-template-columns: 0.7fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "poster music-details";
+  }
+  .playing-options {
+    height: 15vh;
+    width: 82vw;
+    display: grid;
+    grid-template-columns: 1.5fr 0.5fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "playing-options-btns sound-container"
+      "music-further-options sound-container";
+  }
+  .music-details {
+    color: white;
+    font-size: 1000;
+    text-align: center;
+    margin: 1.5em 0;
+  }
+  .music-further-options p {
+    display: inline-block;
+  }
+  .playing-options-btns,
+  .music-further-options {
+    margin-inline: auto;
+  }
+
+  .sound-slider-container {
+    margin-top: 3em;
+    width: 9em;
+  }
+  .music-name {
+    font-weight: bolder;
+  }
+  .sound-container {
+    padding: 0;
+  }
+  .sound-slider {
+    width: 9em;
+  }
+  footer {
+    height: 5vh;
+    width: 100vw;
+    font-weight: lighter;
+  }
+  /*-------------------------------------*/
+  .big-tittle-and-poster {
     width: 95%;
-    height: 50%;
+    height: 90%;
+    margin: 2em 2em 0 2em;
   }
-  .folders-home-2 {
-    background-color: rgba(255, 255, 255, 0.089);
-    border-radius: 5px;
-    width: 13rem;
-    height: 15rem;
-    margin: 0 1.5rem 1.5rem 0;
+
+  /* ----------------------HOME */
+
+  .main-div-body {
+    margin: 0em 2em 1em;
+    display: grid;
+    grid-template-columns: 0.05fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "top-row top-row top-row top-row top-row"
+      "row-1 row-1 row-1 row-1 row-1"
+      "row-2 row-2 row-2 row-2 row-2"
+      "row-3 row-3 row-3 row-3 row-3"
+      "row-4 row-4 row-4 row-4 row-4"
+      "row-5 row-5 row-5 row-5 row-5";
   }
-  .folders-home-1 .div {
-    background-color: rgba(43, 226, 217, 0.452);
+  .main-div-body p {
+    display: inline-block;
+    vertical-align: center;
+    padding-left: 5em;
   }
-  .folders-home-2 div {
-    border-radius: 5px;
-    width: 10.5rem;
-    height: 10.5rem;
-    margin: 1rem 1.2rem;
-    background-color: rgba(137, 43, 226, 0.452);
-  }
-  .folders-home-2 h3 {
-    width: 6rem;
-    margin: 0 1rem;
+  .row {
+    width: 95%;
   }
 }
